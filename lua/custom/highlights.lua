@@ -8,12 +8,46 @@ local M = {}
 M.override = {
   Comment = {
     italic = true,
+    sp = "",
+    fg = "",
+    bg = "",
+  },
+
+
+  NvimTreeWinSeparator = {
+    bg = "gray",
+    fg = "line",
+    bold = true,
+  },
+
+  VertSplit = {
+    bg = "pink",
+    fg = "pink",
   },
 }
-
 ---@type HLTable
 M.add = {
-  NvimTreeOpenedFolderName = { fg = "green", bold = true },
+
+  NormalNC = {
+    bg = "darker_black",
+    fg = "",
+    sp = "",
+  },
+
+  Normal = {
+    bg = "black",
+    fg = "",
+    sp = "",
+  },
+
+  GlanceWinBarFilename = { fg = "lightbg", bold=true },
+  glancewinbarfilepath = { fg = "lightbg", italic = true },
+  glancewinbartitle = { fg = "teal" , bold = true },
+  glancelistcount = { fg = "grey_fg2"},
+  glancelistfilepath = { link = "comment" },
+  glancelistfilename = { fg = "blue" },
+  glancelistmatch = { fg = "grey_fg2", bold=true },
+  glancefoldicon = { fg = "green" },
 }
 
 return M

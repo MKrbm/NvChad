@@ -1,5 +1,37 @@
 local M = {}
 
+M.telescope = {
+  defaults = {
+    theme = "dropdown",
+
+    results_title = false,
+
+    sorting_strategy = "ascending",
+    layout_strategy = "center",
+    layout_config = {
+      anchor = "s",
+      preview_cutoff = 1, -- preview should always show (unless previewer = false)
+
+      width = function(_, max_columns, _)
+        return math.min(max_columns, 80)
+      end,
+
+      -- height = function(_, _, max_lines)
+      --   return math.min(max_lines, 15)
+     -- end,
+
+      height = 0.4,
+    },
+
+    border = true,
+    borderchars = {
+      prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+      results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+      preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    },
+  },
+}
+
 M.treesitter = {
   ensure_installed = {
     "vim",

@@ -29,6 +29,14 @@ local plugins = {
   },
 
   {
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope,
+    config = function(_, opts)
+      require("telescope").load_extension("persisted")
+      require("telescope").setup(opts)
+    end,
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
@@ -40,13 +48,40 @@ local plugins = {
 
   -- Install a plugin
   {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
+    "olimorris/persisted.nvim",
+    lazy = true,
+    cmd = {
+      "SessionToggle",
+      "SessionStart",
+      "SessionStop",
+      "SessionSave",
+      "SessionLoad",
+      "SessionLoadLast",
+      "SessionLoadFromFile",
+      "SessionDelete",
+    },
+    config = require("custom.configs.persisted"),
+    wants = {
+      "nvim-telescope/telescope.nvim",
+    }
+
   },
 
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+    config = require("custom.configs.ts-context"),
+    wants = {
+      "nvim-treesitter/nvim-treesitter"
+    }
+  },
+
+  {
+    "nvimdev/lspsaga.nvim",
+    lazy = true,
+    event = "LspAttach",
+    config = require("custom.configs.lspsaga"),
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

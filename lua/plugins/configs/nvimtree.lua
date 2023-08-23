@@ -1,4 +1,20 @@
+local function my_on_attach(bufnr)
+	local api = require("nvim-tree.api")
+
+	local function opts(desc)
+		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
+
+	-- default mappings
+	api.config.mappings.default_on_attach(bufnr)
+
+	-- custom mappings
+	vim.keymap.set("n", "f", "", opts("Delete filter"))
+	-- vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+end
+
 local options = {
+  on_attach = my_on_attach,
   filters = {
     dotfiles = false,
     exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
@@ -31,7 +47,7 @@ local options = {
     },
   },
   renderer = {
-    root_folder_label = false,
+		root_folder_label = ":.:s?.*?/..?",
     highlight_git = false,
     highlight_opened_files = "none",
 

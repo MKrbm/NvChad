@@ -7,5 +7,7 @@
 -- })
 --
 --
+--
 vim.opt.shell = "/bin/bash"
 vim.o.clipboard = "unnamedplus"
+-- vim.opt.fillchars:append("vert:▕")
