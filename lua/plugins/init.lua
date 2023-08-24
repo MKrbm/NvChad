@@ -14,7 +14,7 @@ local default_plugins = {
 
   {
     "NvChad/ui",
-    branch = "v2.0",
+    branch = "tabufline",
     lazy = false,
   },
 

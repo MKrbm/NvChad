@@ -20,10 +20,21 @@ M.override = {
     bold = true,
   },
 
+  -- WinSeparator = {
+  --   bg = "red",
+  --   fg = "red",
+  -- },
+
   VertSplit = {
     bg = "pink",
     fg = "pink",
   },
+  CursorColumn ={
+    bg = "black2",
+  },
+  -- PreviewNormal = { fg = "green", bg = "green"  },
+  -- PreviewLineNr = { fg = "green", bg = "green"  },
+  -- NormalFloat = { fg = "green", bg = "green"  },
 }
 ---@type HLTable
 M.add = {
@@ -34,20 +45,28 @@ M.add = {
     sp = "",
   },
 
+  TermCorsorNC = {
+    bg = "pink",
+    fg = "pink",
+  },
+
   Normal = {
     bg = "black",
     fg = "",
     sp = "",
   },
 
-  GlanceWinBarFilename = { fg = "lightbg", bold=true },
-  glancewinbarfilepath = { fg = "lightbg", italic = true },
-  glancewinbartitle = { fg = "teal" , bold = true },
-  glancelistcount = { fg = "grey_fg2"},
-  glancelistfilepath = { link = "comment" },
-  glancelistfilename = { fg = "blue" },
-  glancelistmatch = { fg = "grey_fg2", bold=true },
-  glancefoldicon = { fg = "green" },
+  -- GlanceWinBarFilename = { fg = "grey", bold=true },
+  -- glancewinbarfilepath = { fg = "grey", italic = true },
+  -- glancewinbartitle = { fg = "teal" , bold = true },
+  -- glancelistcount = { fg = "grey_fg2"},
+  -- glancelistfilepath = { link = "grey" },
+  -- glancelistfilname = { fg = "blue" },
+  -- glancelistmatch = { fg = "grey_fg2", bold=true },
+  -- glancefoldicon = { fg = "green" },
+  GlancePreviewNormal = { bg = "darker_black"  },
+  GlanceListNormal = { bg =  "black2"  },
+  -- GlancePreviewMatch = { bg = "grey"  },
 }
 
 return M

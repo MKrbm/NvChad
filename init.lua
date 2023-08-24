@@ -19,3 +19,13 @@ end
 dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
+-- vim.api.nvim_set_keymap('i', '<C-C>', '<Esc>', { noremap = true, silent = true })
+vim.cmd([[
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter,InsertLeave * setlocal cursorcolumn
+  autocmd WinLeave,InsertEnter * setlocal nocursorcolumn
+augroup END
+]])
+
+-- vim.cmd [[ au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif ]]

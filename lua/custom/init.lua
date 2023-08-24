@@ -10,4 +10,9 @@
 --
 vim.opt.shell = "/bin/bash"
 vim.o.clipboard = "unnamedplus"
+vim.opt.laststatus = 2
 -- vim.opt.fillchars:append("vert:▕")
+-- vim.g.nvimtree_side = "right"
+-- Initialize the augroup
+
+-- vim.cmd('imap <C-c> <Esc>')
