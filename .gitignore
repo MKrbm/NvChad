@@ -1,5 +1,4 @@
-spell
-ftplugin
+spell/*
 syntax
 coc-settings.json
 .luarc.json

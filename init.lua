@@ -27,5 +27,13 @@ augroup CursorLineOnlyInActiveWindow
   autocmd WinLeave,InsertEnter * setlocal nocursorcolumn
 augroup END
 ]])
+vim.g.mkdp_echo_preview_url = 1
+vim.g.mkdp_browser = ""
+vim.g.mkdp_port = "8899"
+vim.g.mkdp_open_to_the_world = 1
+vim.g.mkdp_open_ip = "127.0.0.1"
 
--- vim.cmd [[ au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif ]]
+
+-- vim.opt.spell = true
+-- vim.opt.spelllang = '' 
+

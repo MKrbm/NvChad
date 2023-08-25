@@ -13,24 +13,22 @@ M.override = {
     bg = "",
   },
 
-
   NvimTreeWinSeparator = {
     bg = "gray",
     fg = "line",
     bold = true,
   },
 
-  -- WinSeparator = {
-  --   bg = "red",
-  --   fg = "red",
-  -- },
-
   VertSplit = {
     bg = "pink",
     fg = "pink",
   },
-  CursorColumn ={
+  CursorColumn = {
     bg = "black2",
+  },
+  SpellBad = {
+    undercurl = true,
+    -- cterm = ""
   },
   -- PreviewNormal = { fg = "green", bg = "green"  },
   -- PreviewLineNr = { fg = "green", bg = "green"  },
@@ -38,6 +36,11 @@ M.override = {
 }
 ---@type HLTable
 M.add = {
+
+  -- SpellBad = {
+  --   ctermfg = "red",
+  --   ctermbg = "red",
+  -- },
 
   NormalNC = {
     bg = "darker_black",
@@ -64,8 +67,8 @@ M.add = {
   -- glancelistfilname = { fg = "blue" },
   -- glancelistmatch = { fg = "grey_fg2", bold=true },
   -- glancefoldicon = { fg = "green" },
-  GlancePreviewNormal = { bg = "darker_black"  },
-  GlanceListNormal = { bg =  "black2"  },
+  GlancePreviewNormal = { bg = "darker_black" },
+  GlanceListNormal = { bg = "black2" },
   -- GlancePreviewMatch = { bg = "grey"  },
 }
 

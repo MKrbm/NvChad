@@ -7,26 +7,26 @@ M.disabled = {
   i = {
     -- ["<C-j>"] = "",
     -- ["<C-k>"] = "",
-    ["<C-c>"] = "",
+    -- ["<C-c>"] = "",
   },
   n = {
     ["<tab>"] = "",
     ["<S-tab>"] = "",
   },
-  v = {
-  },
+  v = {},
 }
 
 M.general = {
   n = {
     -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>ss"] = {"<cmd> SessionSave <CR>", "session save",  opts = {noremap = true, nowait = true}},
-    ["<leader>sl"] = {"<cmd> sessionLoad <CR>", "session load", opts = {noremap = true, nowait = true}},
+    ["<leader>ss"] = { "<cmd> SessionSave <CR>", "session save", opts = { noremap = true, nowait = true } },
+    ["<leader>sl"] = { "<cmd> sessionLoad <CR>", "session load", opts = { noremap = true, nowait = true } },
     ["zj"] = { "o<C-u><Esc>k", "Insert empty-line below", opts = opts },
     ["zk"] = { "o<C-u><Esc>j", "Insert empty-line above", opts = opts },
     ["<M-j>"] = { "i<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
     ["#"] = { "^", "go beginning of the line", opts = opts },
     ["^"] = { "#", "buffer previous", opts = opts },
+    ["d#"] = { "d^", "", opts = opts },
     ["gp"] = { "`[v`]", "select paste text", opts = opts },
     -- ["fl"] = { "f", "cursor to the next occurence of following character", opts = opts },
     -- ["fh"] = { "<S-f>", "cursor to the next occurence of previous character", opts = opts },
@@ -34,8 +34,10 @@ M.general = {
     -- ["th"] = { "<S-t>", "cursor till after the next occurence of previous character", opts = opts },
     ["<leader>["] = { "gg", "begin of file", opts = { noremap = true, nowait = true } },
     ["<leader>]"] = { "G", "end of file", opts = { noremap = true, nowait = true } },
-    ["[{"] = { "[m", "next {", opts = { noremap = true, nowait = true } },
-    ["]}"] = { "]m", "prev }", opts = { noremap = true, nowait = true } },
+    -- ["[{"] = { "[m", "next {", opts = { noremap = true, nowait = true } },
+    -- ["[}"] = { "[]", "prev }", opts = { noremap = true, nowait = true } },
+    -- ["]}"] = { "][", "prev }", opts = { noremap = true, nowait = true } },
+    -- ["]{"] = { "]m", "next {", opts = { noremap = true, nowait = true } },
     ["<S-M-q>"] = {
       "<CMD>q<CR>",
       "Close buffer",
@@ -58,6 +60,16 @@ M.general = {
     ["<C-Down>"] = { ":resize -2<CR>", "Height down" },
     ["<C-Rigth>"] = { ":vertical resize +2<CR>", "Width up" },
     ["<C-Left>"] = { ":vertical resize -2<CR>", "Width down" },
+    -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
+    ["<A-h>"] = { "<CMD>tabprevious<CR>", "<CMD>tabprevious<CR>", opts = { remap = true } },
+    ["<A-l>"] = { "<CMD>tabnext<CR>", "<CMD>tabnext<CR>", opts = { remap = true } },
+    ["tn"] = { "<CMD>tab split<CR>", "<CMD>tabnext<CR>", opts = { remap = true } },
+    ["<leader>su"] = { "z=", "Spell Suggestion" },
+    ["<leader>sg"] = { "zg", "Spell add" },
+    ["<leader>sr"] = { "zug", "Spell remove" },
+    [";"] = { "<Plug>(clever-f-repeat-forward)", "clever f" },
+    [","] = { "<Plug>(clever-f-repeat-back)", "clever f" },
+    ["<leader>n"] = { "<Plug>(clever-f-reset)", "clever f reset" },
   },
   v = {
     ["#"] = { "^", "go beginning of the line", opts = { silent = true } },
@@ -66,16 +78,23 @@ M.general = {
     ["<space>]"] = { "]]", "end of file", opts = { noremap = true, nowait = true } },
     ["[{"] = { "[m", "next {", opts = { noremap = true, nowait = true } },
     ["]}"] = { "]m", "prev }", opts = { noremap = true, nowait = true } },
+    [";"] = { "<Plug>(clever-f-repeat-forward)", "clever f" },
+    [","] = { "<Plug>(clever-f-repeat-back)", "clever f" },
   },
   t = {
     ["<C-h>"] = { "<C-x><C-w>h", "Window left", opts = { remap = true } },
     ["<C-l>"] = { "<C-x><C-w>l", "Window right", opts = { remap = true } },
     ["<C-j>"] = { "<C-x><C-w>j", "Window down", opts = { remap = true } },
     ["<C-k>"] = { "<C-x><C-w>k", "Window up", opts = { remap = true } },
-    ["<C-c>"] = { "<C-x>", "terminal exit", opts = { remap = true } },
+    -- ["<C-c>"] = { "<C-x>", "terminal exit", opts = { remap = true } },
   },
   i = {
-    ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
+    -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
+    ["<A-]>"] = { "<C-t>", "next {", opts = { noremap = true, nowait = true } },
+    ["<A-[>"] = { "<C-d>", "next {", opts = { noremap = true, nowait = true } },
+  },
+  c = {
+    -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
   },
 }
 
@@ -87,7 +106,7 @@ M.telescope = {
     -- find
     ["<leader>fl"] = { "<cmd> Telescope resume  <CR>", "Resume last search" },
 
-    ["<leader>sf"] = {"<cmd> Telescope persisted<CR>", "open session folder" ,opts = {noremap = true, nowait = true}},
+    ["<leader>sf"] = { "<cmd> Telescope persisted<CR>", "open session folder", opts = { noremap = true, nowait = true } },
   },
 }
 
@@ -114,11 +133,11 @@ M.tabufline = {
 
 M.hop = {
   n = {
-    ["gg"] = { "<cmd> HopChar2 <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
-    ["\\"] = { "<cmd> HopChar2 <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["gg"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },
     ["gw"] = { "<cmd> HopWordMW <CR>", "nvim-hop jump to word", opts = { silent = true, noremap = true } },
-    ["gs"] = { "<cmd> HopChar1 <CR>", "nvim-hop char1", opts = { silent = true, noremap = true } },
+    ["gs"] = { "<cmd> HopChar1MW <CR>", "nvim-hop char1", opts = { silent = true, noremap = true } },
   },
 }
 

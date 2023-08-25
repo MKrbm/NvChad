@@ -34,23 +34,23 @@ local sources = {
     extra_args = require("custom.configs.completion.clang_format"),
   },
 
-  b.diagnostics.cspell.with {
-    extra_args = {
-      "-c",
-      vim.fn.expand "./cspell/cspell.json",
-    },
-    filetypes = filetypes,
-    -- method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-  },
-  b.code_actions.cspell.with {
-    config = {
-      find_json = function(_)
-        return vim.fn.expand "./cspell/cspell.json"
-      end,
-    },
-    filetypes = filetypes,
-    method = null_ls.methods.CODE_ACTION,
-  },
+--   b.diagnostics.cspell.with {
+--     extra_args = {
+--       "-c",
+--       vim.fn.expand "~/.config/NvChad/cspell/cspell.json",
+--     },
+--     filetypes = filetypes,
+--     -- method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+--   },
+--   b.code_actions.cspell.with {
+--     config = {
+--       find_json = function(_)
+--         return vim.fn.expand "~/.config/NvChad/cspell/cspell.json"
+--       end,
+--     },
+--     filetypes = filetypes,
+--     method = null_ls.methods.CODE_ACTION,
+--   },
 }
 
 null_ls.setup {

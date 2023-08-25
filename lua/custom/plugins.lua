@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,14 +25,20 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
+  },
+
+  {
+    "folke/which-key.nvim",
+    opts = overrides.which_key
   },
 
   {
     "nvim-telescope/telescope.nvim",
     opts = overrides.telescope,
     config = function(_, opts)
-      require("telescope").load_extension("persisted")
+      require("telescope").load_extension "persisted"
+      require("telescope").load_extension "fzf"
       require("telescope").setup(opts)
     end,
   },
@@ -60,27 +66,35 @@ local plugins = {
       "SessionLoadFromFile",
       "SessionDelete",
     },
-    config = require("custom.configs.persisted"),
+    config = require "custom.configs.persisted",
     wants = {
       "nvim-telescope/telescope.nvim",
-    }
-
+    },
   },
 
   {
     "nvim-treesitter/nvim-treesitter-context",
     lazy = false,
-    config = require("custom.configs.ts-context"),
+    config = require "custom.configs.ts-context",
     wants = {
-      "nvim-treesitter/nvim-treesitter"
-    }
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    lazy = false,
+    config = require "custom.configs.ts-textobjects",
+    wants = {
+      "nvim-treesitter/nvim-treesitter",
+    },
   },
 
   {
     "nvimdev/lspsaga.nvim",
     lazy = true,
     event = "LspAttach",
-    config = require("custom.configs.lspsaga"),
+    config = require "custom.configs.lspsaga",
   },
   -- To make a plugin not be loaded
   -- {
@@ -89,17 +103,17 @@ local plugins = {
   -- },
 
   {
-    'chentoast/marks.nvim',
+    "chentoast/marks.nvim",
     lazy = false,
     config = function()
-      require('marks').setup{
+      require("marks").setup {
         mappings = {
           set_next = "m,",
           next = "m]",
           preview = "m:",
           set_bookmark0 = "m0",
-          prev = false -- pass false to disable only this default mapping
-        }
+          prev = false, -- pass false to disable only this default mapping
+        },
       }
     end,
   },
@@ -108,7 +122,7 @@ local plugins = {
     "phaazon/hop.nvim",
     lazy = false,
     config = function()
-      require("hop").setup{
+      require("hop").setup {
         case_insensitive = true,
         char2_fallback_key = "<CR>",
         quit_key = "<Esc>",
@@ -119,7 +133,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     lazy = false,
-    wants = {"nvim-treesitter"},
+    wants = { "nvim-treesitter" },
     -- dependencies = "nvim-treesitter/nvim-treesitter",
   },
 
@@ -127,9 +141,9 @@ local plugins = {
     "dnlhc/glance.nvim",
     lazy = false,
     config = function()
-      local glance = require('glance')
+      local glance = require "glance"
       local actions = glance.actions
-      glance.setup({
+      glance.setup {
         height = 20,
         zindex = 50,
         preview_win_opts = {
@@ -170,7 +184,7 @@ local plugins = {
             ["t"] = actions.jump_tab,
             ["c"] = actions.close_fold,
             ["o"] = actions.open_fold,
-            ["[]"] = actions.enter_win("preview"), -- Focus preview window
+            ["[]"] = actions.enter_win "preview", -- Focus preview window
             ["q"] = actions.close,
             ["Q"] = actions.close,
             ["<Esc>"] = actions.close,
@@ -185,7 +199,7 @@ local plugins = {
             ["<C-c>t"] = actions.jump_tab,
             ["<C-p>"] = actions.previous_location,
             ["<C-n>"] = actions.next_location,
-            ["[]"] = actions.enter_win("list"), -- Focus list window
+            ["[]"] = actions.enter_win "list", -- Focus list window
           },
         },
         hooks = {
@@ -197,17 +211,13 @@ local plugins = {
                 { title = "Glance" }
               )
             elseif #results == 1 and method == "references" then
-              vim.notify(
-                "The identifier under cursor is the only one found",
-                vim.log.levels.INFO,
-                { title = "Glance" }
-              )
+              vim.notify("The identifier under cursor is the only one found", vim.log.levels.INFO, { title = "Glance" })
             else
               open(results)
             end
           end,
         },
-      })
+      }
     end,
   },
 
@@ -215,6 +225,7 @@ local plugins = {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
     lazy = false,
+    build = ":call mkdp#util#install()",
     -- build = "cd app && npm install && git reset --hard",
   },
 
@@ -223,10 +234,47 @@ local plugins = {
     lazy = true,
     wants = {
       "nvim-treesitter/nvim-treesitter",
-    }
+    },
     -- build = "cd app && npm install && git reset --hard",
   },
 
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+    wants = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    -- build = "cd app && npm install && git reset --hard",
+  },
+
+  {
+    "rhysd/clever-f.vim",
+    lazy = true,
+    event = { "CursorHold", "CursorHoldI" },
+    config = require "custom.configs.cleverf",
+  },
+
+  {
+    "zbirenbaum/copilot.lua",
+    lazy = false,
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = require "custom.configs.copilot",
+  },
+  {
+    "mfussenegger/nvim-treehopper",
+    lazy = false,
+    wants = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
 }
+
+-- editor["rhysd/clever-f.vim"] = {
+-- 	lazy = true,
+-- 	event = { "CursorHold", "CursorHoldI" },
+-- 	config = require("editor.cleverf"),
+-- }
+-- }
 
 return plugins
