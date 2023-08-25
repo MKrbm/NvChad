@@ -86,21 +86,20 @@ M.mason = {
 
 local my_on_attach = function(bufnr)
   local api = require "nvim-tree.api"
-
   local opts = function(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
-
-  -- default mappings
   api.config.mappings.default_on_attach(bufnr)
 
-  -- custom mappings
   vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts "Up")
   vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
-  vim.keymap.set("n", "<S-o>", function(node)
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts "Close Directory")
+  vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
+  vim.keymap.set("n", "<S-l>", function(node)
     local nt_api = require "nvim-tree.api"
     nt_api.node.open.edit(node)
     nt_api.tree.focus()
+    vim.api.nvim_input "2w" -- Simulate 'w' keypress
   end, opts "Help")
 end
 

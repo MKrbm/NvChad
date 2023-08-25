@@ -57,8 +57,21 @@ M.add = {
     bg = "black",
     fg = "",
     sp = "",
+    sp = "",
   },
 
+  IlluminatedWordWrite = {
+    underline = false,
+    undercurl = false,
+    bg = "one_bg",
+  },
+
+  IlluminatedWordText = {
+    underline = false,
+    undercurl = false,
+    bg = "one_bg",
+  },
+  -- },
   -- GlanceWinBarFilename = { fg = "grey", bold=true },
   -- glancewinbarfilepath = { fg = "grey", italic = true },
   -- glancewinbartitle = { fg = "teal" , bold = true },

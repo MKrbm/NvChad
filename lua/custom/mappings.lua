@@ -64,7 +64,7 @@ M.general = {
     ["<A-h>"] = { "<CMD>tabprevious<CR>", "<CMD>tabprevious<CR>", opts = { remap = true } },
     ["<A-l>"] = { "<CMD>tabnext<CR>", "<CMD>tabnext<CR>", opts = { remap = true } },
     ["tn"] = { "<CMD>tab split<CR>", "<CMD>tabnext<CR>", opts = { remap = true } },
-    ["<leader>su"] = { "z=", "Spell Suggestion" },
+    ["<leader>su"] = { '<Cmd>lua require("which-key").show("z=", {mode = "n", auto = true})<CR>', "Spell Suggestion" , opts = { noremap = true, nowait = true} },
     ["<leader>sg"] = { "zg", "Spell add" },
     ["<leader>sr"] = { "zug", "Spell remove" },
     [";"] = { "<Plug>(clever-f-repeat-forward)", "clever f" },

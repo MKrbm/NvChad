@@ -30,7 +30,7 @@ local plugins = {
 
   {
     "folke/which-key.nvim",
-    opts = overrides.which_key
+    opts = overrides.which_key,
   },
 
   {
@@ -261,12 +261,46 @@ local plugins = {
     event = "InsertEnter",
     config = require "custom.configs.copilot",
   },
+
   {
     "mfussenegger/nvim-treehopper",
     lazy = false,
     wants = {
       "nvim-treesitter/nvim-treesitter",
     },
+  },
+
+  {
+    "RRethy/vim-illuminate",
+    lazy = true,
+    event = { "CursorHold", "CursorHoldI" },
+    config = function()
+      require("illuminate").configure {
+        providers = {
+          -- "lsp",
+          -- "treesitter",
+          "regex",
+        },
+        filetypes_denylist = {
+          "DoomInfo",
+          "DressingSelect",
+          "NvimTree",
+          "Outline",
+          "TelescopePrompt",
+          "Trouble",
+          "alpha",
+          "dashboard",
+          "dirvish",
+          "fugitive",
+          "help",
+          "lsgsagaoutline",
+          "neogitstatus",
+          "norg",
+          "toggleterm",
+        },
+        min_count_to_highlight = 2,
+      }
+    end,
   },
 }
 
