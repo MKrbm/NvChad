@@ -93,7 +93,7 @@ local function load_options()
     -- winblend = 0,
     -- winminwidth = 10,
     -- winwidth = 30,
-    -- wrap = false,
+    wrap = false,
     -- wrapscan = true,
     -- writebackup = false,
 
