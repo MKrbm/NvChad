@@ -23,8 +23,8 @@ require "plugins"
 vim.cmd([[
 augroup CursorLineOnlyInActiveWindow
   autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter,InsertLeave * setlocal cursorcolumn
-  autocmd WinLeave,InsertEnter * setlocal nocursorcolumn
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn cursorline
+  autocmd WinLeave * setlocal nocursorcolumn nocursorline
 augroup END
 ]])
 vim.g.mkdp_echo_preview_url = 1

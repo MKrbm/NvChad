@@ -85,6 +85,25 @@ local default_plugins = {
       dofile(vim.g.base46_cache .. "syntax")
       require("nvim-treesitter.configs").setup(opts)
     end,
+    dependencies = {
+      {
+        "harrisoncramer/jump-tag",
+      },
+      {
+
+        "mfussenegger/nvim-treehopper",
+      },
+      {
+        "nvim-treesitter/nvim-treesitter-context",
+        lazy = false,
+        config = require "custom.configs.ts-context",
+      },
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        lazy = false,
+        config = require "custom.configs.ts-textobjects",
+      },
+    },
   },
 
   -- git stuff
@@ -140,8 +159,18 @@ local default_plugins = {
     init = function()
       require("core.utils").lazy_load "nvim-lspconfig"
     end,
+    dependencies = {
+      -- format & linting
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require "custom.configs.null-ls"
+        end,
+      },
+    },
     config = function()
       require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
     end,
   },
 
@@ -153,7 +182,7 @@ local default_plugins = {
       {
         -- snippet plugin
         "L3MON4D3/LuaSnip",
-        dependencies = "rafamadriz/friendly-snippets",
+        -- dependencies = "rafamadriz/friendly-snippets",
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
           require("plugins.configs.others").luasnip(opts)
@@ -229,7 +258,27 @@ local default_plugins = {
 
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
+    -- dependencies = "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+      },
+      {
+        "olimorris/persisted.nvim",
+        lazy = true,
+        cmd = {
+          "SessionToggle",
+          "SessionStart",
+          "SessionStop",
+          "SessionSave",
+          "SessionLoad",
+          "SessionLoadLast",
+          "SessionLoadFromFile",
+          "SessionDelete",
+        },
+        config = require "custom.configs.persisted",
+      },
+    },
     cmd = "Telescope",
     init = function()
       require("core.utils").load_mappings "telescope"
@@ -237,7 +286,13 @@ local default_plugins = {
     opts = function()
       return require "plugins.configs.telescope"
     end,
+    -- config = function(_, opts)
+    --   require("telescope").load_extension "persisted"
+    --   -- require("telescope").load_extensio "fzf"
+    --   require("telescope").setup(opts)
+    -- end,
     config = function(_, opts)
+      require("telescope").load_extension "persisted"
       dofile(vim.g.base46_cache .. "telescope")
       local telescope = require "telescope"
       telescope.setup(opts)

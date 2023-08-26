@@ -15,4 +15,10 @@ vim.opt.laststatus = 2
 -- vim.g.nvimtree_side = "right"
 -- Initialize the augroup
 
--- vim.cmd('imap <C-c> <Esc>')
+--- Disable cursorcolumn for nvim-tree
+vim.api.nvim_exec([[
+  augroup NvimTreeCursorColumn
+      autocmd!
+      autocmd FileType NvimTree setlocal nocursorcolumn
+  augroup END
+]], false)

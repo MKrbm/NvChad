@@ -69,6 +69,7 @@ M.general = {
     ["<leader>sr"] = { "zug", "Spell remove" },
     [";"] = { "<Plug>(clever-f-repeat-forward)", "clever f" },
     [","] = { "<Plug>(clever-f-repeat-back)", "clever f" },
+    ["<leader>xa"] = { ":wa<CR>:qa<CR>", "save all then quit all" },
     ["<leader>n"] = { "<Plug>(clever-f-reset)", "clever f reset" },
   },
   v = {

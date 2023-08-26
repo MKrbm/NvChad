@@ -24,6 +24,9 @@ M.override = {
     fg = "pink",
   },
   CursorColumn = {
+    bg = "darker_black",
+  },
+  CursorLine = {
     bg = "black2",
   },
   SpellBad = {
@@ -56,7 +59,6 @@ M.add = {
   Normal = {
     bg = "black",
     fg = "",
-    sp = "",
     sp = "",
   },
 

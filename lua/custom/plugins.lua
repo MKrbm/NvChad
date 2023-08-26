@@ -5,27 +5,32 @@ local plugins = {
 
   -- Override plugin definition options
 
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   dependencies = {
+  --     -- format & linting
+  --     {
+  --       "jose-elias-alvarez/null-ls.nvim",
+  --       config = function()
+  --         require "custom.configs.null-ls"
+  --       end,
+  --     },
+  --   },
+  --   config = function()
+  --     require "plugins.configs.lspconfig"
+  --     require "custom.configs.lspconfig"
+  --   end, -- Override to setup mason-lspconfig
+  -- },
 
   -- override plugin configs
   {
     "williamboman/mason.nvim",
     opts = overrides.mason,
+  },
+
+  {
+    "NvChad/nvterm",
+    opts = overrides.nvterm,
   },
 
   {
@@ -36,11 +41,6 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     opts = overrides.telescope,
-    config = function(_, opts)
-      require("telescope").load_extension "persisted"
-      require("telescope").load_extension "fzf"
-      require("telescope").setup(opts)
-    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -53,42 +53,42 @@ local plugins = {
   },
 
   -- Install a plugin
-  {
-    "olimorris/persisted.nvim",
-    lazy = true,
-    cmd = {
-      "SessionToggle",
-      "SessionStart",
-      "SessionStop",
-      "SessionSave",
-      "SessionLoad",
-      "SessionLoadLast",
-      "SessionLoadFromFile",
-      "SessionDelete",
-    },
-    config = require "custom.configs.persisted",
-    wants = {
-      "nvim-telescope/telescope.nvim",
-    },
-  },
+  -- {
+  --   "olimorris/persisted.nvim",
+  --   lazy = true,
+  --   cmd = {
+  --     "SessionToggle",
+  --     "SessionStart",
+  --     "SessionStop",
+  --     "SessionSave",
+  --     "SessionLoad",
+  --     "SessionLoadLast",
+  --     "SessionLoadFromFile",
+  --     "SessionDelete",
+  --   },
+  --   config = require "custom.configs.persisted",
+  --   after = {
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  -- },
 
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    lazy = false,
-    config = require "custom.configs.ts-context",
-    wants = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   lazy = false,
+  --   config = require "custom.configs.ts-context",
+  --   after = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  -- },
 
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    lazy = false,
-    config = require "custom.configs.ts-textobjects",
-    wants = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  --   lazy = false,
+  --   config = require "custom.configs.ts-textobjects",
+  --   after = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  -- },
 
   {
     "nvimdev/lspsaga.nvim",
@@ -130,12 +130,6 @@ local plugins = {
     end,
   },
 
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    lazy = false,
-    wants = { "nvim-treesitter" },
-    -- dependencies = "nvim-treesitter/nvim-treesitter",
-  },
 
   {
     "dnlhc/glance.nvim",
@@ -229,23 +223,23 @@ local plugins = {
     -- build = "cd app && npm install && git reset --hard",
   },
 
-  {
-    "harrisoncramer/jump-tag",
-    lazy = true,
-    wants = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    -- build = "cd app && npm install && git reset --hard",
-  },
+  -- {
+  --   "harrisoncramer/jump-tag",
+  --   lazy = true,
+  --   wants = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  --   -- build = "cd app && npm install && git reset --hard",
+  -- },
 
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
-    wants = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    -- build = "cd app && npm install && git reset --hard",
-  },
+  -- {
+  --   "nvim-telescope/telescope-fzf-native.nvim",
+  --   build = "make",
+  --   wants = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  --   -- build = "cd app && npm install && git reset --hard",
+  -- },
 
   {
     "rhysd/clever-f.vim",
@@ -262,13 +256,13 @@ local plugins = {
     config = require "custom.configs.copilot",
   },
 
-  {
-    "mfussenegger/nvim-treehopper",
-    lazy = false,
-    wants = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
+  -- {
+  --   "mfussenegger/nvim-treehopper",
+  --   lazy = false,
+  --   wants = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  -- },
 
   {
     "RRethy/vim-illuminate",
@@ -302,13 +296,19 @@ local plugins = {
       }
     end,
   },
+
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   lazy = true,
+  --   event = { "CursorHold", "CursorHoldI" },
+  --   config = require "custom.configs.neoscroll",
+  -- },
 }
 
--- editor["rhysd/clever-f.vim"] = {
+-- ui["karb94/neoscroll.nvim"] = {
 -- 	lazy = true,
 -- 	event = { "CursorHold", "CursorHoldI" },
--- 	config = require("editor.cleverf"),
--- }
+-- 	config = require("ui.neoscroll"),
 -- }
 
 return plugins
