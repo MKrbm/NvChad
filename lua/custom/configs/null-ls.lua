@@ -29,10 +29,10 @@ local sources = {
   b.formatting.stylua,
 
   -- cpp
-  b.formatting.clang_format.with {
-    filetypes = { "c", "cpp" },
-    extra_args = require("custom.configs.completion.clang_format"),
-  },
+  -- b.formatting.clang_format.with {
+  --   filetypes = { "c", "cpp" },
+  --   extra_args = require("custom.configs.completion.clang_format"),
+  -- },
 
 --   b.diagnostics.cspell.with {
 --     extra_args = {

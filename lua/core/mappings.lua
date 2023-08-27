@@ -47,7 +47,6 @@ M.general = {
     ["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
 
-
     ["<leader>fm"] = {
       function()
         vim.lsp.buf.format { async = true }
@@ -191,10 +190,15 @@ M.lspconfig = {
       "LSP rename",
     },
 
+    -- ["<leader>ca"] = {
+    --   function()
+    --     vim.lsp.buf.code_action()
+    --   end,
+    --   "LSP code action",
+    -- },
+    --Lspsaga code_action
     ["<leader>ca"] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
+      "<cmd> Lspsaga code_action <CR>",
       "LSP code action",
     },
 

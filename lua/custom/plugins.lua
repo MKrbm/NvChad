@@ -248,13 +248,13 @@ local plugins = {
     config = require "custom.configs.cleverf",
   },
 
-  {
-    "zbirenbaum/copilot.lua",
-    lazy = false,
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = require "custom.configs.copilot",
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   lazy = true,
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = require "custom.configs.copilot",
+  -- },
 
   -- {
   --   "mfussenegger/nvim-treehopper",
@@ -297,12 +297,11 @@ local plugins = {
     end,
   },
 
-  -- {
-  --   "karb94/neoscroll.nvim",
-  --   lazy = true,
-  --   event = { "CursorHold", "CursorHoldI" },
-  --   config = require "custom.configs.neoscroll",
-  -- },
+  {
+    "sindrets/diffview.nvim",
+    lazy = true,
+    cmd = { "DiffviewOpen", "DiffviewClose" },
+  },
 }
 
 -- ui["karb94/neoscroll.nvim"] = {

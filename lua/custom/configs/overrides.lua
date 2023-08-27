@@ -168,7 +168,8 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
-    "cspell",
+    "codelldb",
+    -- "cspell",
     "tree-sitter-cli",
   },
 }
