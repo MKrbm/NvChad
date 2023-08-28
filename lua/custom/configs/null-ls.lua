@@ -28,6 +28,7 @@ local sources = {
   -- Lua
   b.formatting.stylua,
 
+  b.formatting.clang_format,
   -- cpp
   -- b.formatting.clang_format.with {
   --   filetypes = { "c", "cpp" },

@@ -93,15 +93,14 @@ local default_plugins = {
 
         "mfussenegger/nvim-treehopper",
       },
-      {
-        "nvim-treesitter/nvim-treesitter-context",
-        lazy = false,
-        config = require "custom.configs.ts-context",
-      },
+      -- {
+      --   "nvim-treesitter/nvim-treesitter-context",
+      --   lazy = false,
+      --   config = require "custom.configs.ts-context",
+      -- },
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
         lazy = false,
-        config = require "custom.configs.ts-textobjects",
       },
     },
   },
