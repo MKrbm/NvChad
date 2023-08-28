@@ -1,5 +1,6 @@
 ---@type MappingsTable
 local opts = { noremap = true }
+local opts2 = { noremap = true, silent = true, nowait = true}
 
 local M = {}
 
@@ -27,7 +28,7 @@ M.general = {
     ["#"] = { "^", "go beginning of the line", opts = opts },
     ["^"] = { "#", "buffer previous", opts = opts },
     ["d#"] = { "d^", "", opts = opts },
-    ["gp"] = { "`[v`]", "select paste text", opts = opts },
+    -- ["gp"] = { "`[v`]", "select paste text", opts = opts },
     -- ["fl"] = { "f", "cursor to the next occurence of following character", opts = opts },
     -- ["fh"] = { "<S-f>", "cursor to the next occurence of previous character", opts = opts },
     -- ["tl"] = { "t", "cursor till after the next occurence of following character", opts = opts },
@@ -38,6 +39,7 @@ M.general = {
     -- ["[}"] = { "[]", "prev }", opts = { noremap = true, nowait = true } },
     -- ["]}"] = { "][", "prev }", opts = { noremap = true, nowait = true } },
     -- ["]{"] = { "]m", "next {", opts = { noremap = true, nowait = true } },
+    -- ["gcc"] = {"", ""},
     ["<S-M-q>"] = {
       "<CMD>q<CR>",
       "Close buffer",
@@ -61,10 +63,14 @@ M.general = {
     ["<C-Rigth>"] = { ":vertical resize +2<CR>", "Width up" },
     ["<C-Left>"] = { ":vertical resize -2<CR>", "Width down" },
     -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
-    ["<A-h>"] = { "<CMD>tabprevious<CR>", "<CMD>tabprevious<CR>", opts = { remap = true } },
+    ["<A-h>"] = { "<CMD>tabprevious<CR>", "<CMD>tabprevious<CR>", ots = { remap = true } },
     ["<A-l>"] = { "<CMD>tabnext<CR>", "<CMD>tabnext<CR>", opts = { remap = true } },
     ["tn"] = { "<CMD>tab split<CR>", "<CMD>tabnext<CR>", opts = { remap = true } },
-    ["<leader>su"] = { '<Cmd>lua require("which-key").show("z=", {mode = "n", auto = true})<CR>', "Spell Suggestion" , opts = { noremap = true, nowait = true} },
+    ["<leader>su"] = {
+      '<Cmd>lua require("which-key").show("z=", {mode = "n", auto = true})<CR>',
+      "Spell Suggestion",
+      opts = { noremap = true, nowait = true },
+    },
     ["<leader>sg"] = { "zg", "Spell add" },
     ["<leader>sr"] = { "zug", "Spell remove" },
     [";"] = { "<Plug>(clever-f-repeat-forward)", "clever f" },
@@ -107,7 +113,11 @@ M.telescope = {
     -- find
     ["<leader>fl"] = { "<cmd> Telescope resume  <CR>", "Resume last search" },
 
-    ["<leader>sf"] = { "<cmd> Telescope persisted<CR>", "open session folder", opts = { noremap = true, nowait = true } },
+    ["<leader>sf"] = {
+      "<cmd> Telescope persisted<CR>",
+      "open session folder",
+      opts = { noremap = true, nowait = true },
+    },
   },
 }
 
@@ -134,7 +144,7 @@ M.tabufline = {
 
 M.hop = {
   n = {
-    ["gg"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["G"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },
     ["gw"] = { "<cmd> HopWordMW <CR>", "nvim-hop jump to word", opts = { silent = true, noremap = true } },
@@ -159,6 +169,43 @@ M.Lspsaga = {
     ["<S-k>"] = { "<CMD>Lspsaga hover_doc<CR>", "Go definition", opts },
     ["ga"] = { "<CMD>Lspsaga code_action<CR>", "Go definition", opts },
     ["gD"] = { "<CMD>Lspsaga goto_definition<CR>", "Go definition", opts },
+  },
+}
+
+M.tree_climber = {
+  -- plugin=true,
+  n = {
+    ["gp"] = {
+      function()
+        require("tree-climber").goto_parent()
+      end,
+      "Go parent",
+      opts2,
+    },
+
+    ["gcc"] = {
+      function()
+        require("tree-climber").goto_child()
+      end,
+      "Go child",
+      opts2,
+    },
+
+    ["gn"] = {
+      function()
+        require("tree-climber").goto_next({skip_comments = true})
+      end,
+      "Go to next sybling",
+      opts2,
+    },
+
+    ["gN"] = {
+      function()
+        require("tree-climber").goto_prev({skip_comments = true})
+      end,
+      "Go to previous sybling",
+      opts2,
+    },
   },
 }
 

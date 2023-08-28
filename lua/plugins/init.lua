@@ -86,8 +86,20 @@ local default_plugins = {
       require("nvim-treesitter.configs").setup(opts)
     end,
     dependencies = {
+      -- {
+      --   "harrisoncramer/jump-tag",
+      -- },
       {
-        "harrisoncramer/jump-tag",
+
+        "drybalka/tree-climber.nvim",
+        -- opts = function()
+        --   return {
+        --     skip_comments = true,
+        --   }
+        -- end,
+        -- config = function(_, opts)
+        --   require("tree-climber").setup(opts)
+        -- end,
       },
       {
 
@@ -224,12 +236,12 @@ local default_plugins = {
   {
     "numToStr/Comment.nvim",
     keys = {
-      { "gcc", mode = "n", desc = "Comment toggle current line" },
-      { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
-      { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-      { "gbc", mode = "n", desc = "Comment toggle current block" },
-      { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-      { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+      -- { "gcc", mode = "n", desc = "Comment toggle current line" },
+      -- { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
+      -- { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
+      -- { "gbc", mode = "n", desc = "Comment toggle current block" },
+      -- { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+      -- { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
     },
     init = function()
       require("core.utils").load_mappings "comment"

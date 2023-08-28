@@ -184,6 +184,9 @@ M.mason = {
     "codelldb",
     -- "cspell",
     "tree-sitter-cli",
+
+    -- python
+    "python-language-server",
   },
 }
 
