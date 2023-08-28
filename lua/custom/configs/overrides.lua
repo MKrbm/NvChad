@@ -69,7 +69,7 @@ M.nvterm = {
         height = 0.7,
         border = "single",
       },
-      horizontal = { location = "rightbelow", split_ratio = 0.2 },
+      horizontal = { location = "rightbelow", split_ratio = 0.15 },
       vertical = { location = "rightbelow", split_ratio = 0.5 },
     },
   },
@@ -182,6 +182,11 @@ M.mason = {
     "clangd",
     "clang-format",
     "codelldb",
+
+    -- cmake
+    "cmake-language-server",
+    "cmakelang",
+
     -- "cspell",
     "tree-sitter-cli",
 

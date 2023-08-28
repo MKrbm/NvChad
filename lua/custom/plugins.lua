@@ -130,7 +130,6 @@ local plugins = {
     end,
   },
 
-
   {
     "dnlhc/glance.nvim",
     lazy = false,
@@ -302,6 +301,18 @@ local plugins = {
     lazy = true,
     cmd = { "DiffviewOpen", "DiffviewClose" },
   },
+
+  {
+    "Civitasv/cmake-tools.nvim",
+    dependencies = {
+      {
+        "nvim-lua/plenary.nvim",
+      },
+    },
+    lazy = false,
+  },
+
+  { "tpope/vim-surround", lazy = false },
 }
 
 -- ui["karb94/neoscroll.nvim"] = {

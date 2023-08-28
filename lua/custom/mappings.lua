@@ -1,6 +1,6 @@
 ---@type MappingsTable
 local opts = { noremap = true }
-local opts2 = { noremap = true, silent = true, nowait = true}
+local opts2 = { noremap = true, silent = true, nowait = true }
 
 local M = {}
 
@@ -13,6 +13,7 @@ M.disabled = {
   n = {
     ["<tab>"] = "",
     ["<S-tab>"] = "",
+    ["<leader>cm"] = "",
   },
   v = {},
 }
@@ -21,7 +22,7 @@ M.general = {
   n = {
     -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>ss"] = { "<cmd> SessionSave <CR>", "session save", opts = { noremap = true, nowait = true } },
-    ["<leader>sl"] = { "<cmd> sessionLoad <CR>", "session load", opts = { noremap = true, nowait = true } },
+    ["<leader>sl"] = { "<cmd> SessionLoad <CR>", "session load", opts = { noremap = true, nowait = true } },
     ["zj"] = { "o<C-u><Esc>k", "Insert empty-line below", opts = opts },
     ["zk"] = { "o<C-u><Esc>j", "Insert empty-line above", opts = opts },
     ["<M-j>"] = { "i<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
@@ -193,7 +194,7 @@ M.tree_climber = {
 
     ["gn"] = {
       function()
-        require("tree-climber").goto_next({skip_comments = true})
+        require("tree-climber").goto_next { skip_comments = true }
       end,
       "Go to next sybling",
       opts2,
@@ -201,11 +202,23 @@ M.tree_climber = {
 
     ["gN"] = {
       function()
-        require("tree-climber").goto_prev({skip_comments = true})
+        require("tree-climber").goto_prev { skip_comments = true }
       end,
       "Go to previous sybling",
       opts2,
     },
+  },
+}
+
+M.cmake = {
+  n = {
+    ["<leader>Cg"] = {"<CMD> CMakeGenerate <CR>" , "generate cmake", opts },
+    ["<leader>Cb"] = {"<CMD> CMakeBuild <CR>" , "build cmake", opts },
+    ["<leader>Cr"] = {"<CMD> CMakeRun <CR>" , "run cmake", opts },
+    ["<leader>Cx"] = {"<CMD> CMakeClean <CR>" , "clean cmake", opts },
+    ["<leader>Cc"] = {"<CMD> CMakeClose <CR>" , "close cmake ", opts },
+    ["<leader>Cs"] = {"<CMD> CMakeStop <CR>" , "stop cmake ", opts },
+    ["<leader>Co"] = {"<CMD> CMakeOpen <CR>" , "stop cmake ", opts },
   },
 }
 
