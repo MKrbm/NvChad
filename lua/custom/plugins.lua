@@ -248,13 +248,13 @@ local plugins = {
     config = require "custom.configs.cleverf",
   },
 
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   lazy = true,
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   config = require "custom.configs.copilot",
-  -- },
+  {
+    "zbirenbaum/copilot.lua",
+    lazy = true,
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = require "custom.configs.copilot",
+  },
 
   -- {
   --   "mfussenegger/nvim-treehopper",

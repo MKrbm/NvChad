@@ -3,14 +3,26 @@ local M = {}
 -- local lga_actions = require "telescope-live-grep-args.actions"
 -- local actions = require "telescope.actions"
 
+local slow_scroll = function(prompt_bufnr, direction)
+  local state = require("telescope.state")
+  local action_state = require("telescope.actions.state")
+  local previewer = action_state.get_current_picker(prompt_bufnr).previewer
+  local status = state.get_status(prompt_bufnr)
+  -- Check if we actually have a previewer and a preview window
+  if type(previewer) ~= "table" or previewer.scroll_fn == nil or status.preview_win == nil then
+    return
+  end
+  previewer:scroll_fn(1 * direction)
+end
+
 M.telescope = {
   pickers = {
     layout_config = {
-      scroll_speed = 2,
+      scroll_speed = 1,
     },
   },
   defaults = {
-    theme = "dropdown",
+    -- theme = "dropdown",
     results_title = false,
     sorting_strategy = "ascending",
     layout_strategy = "center",
@@ -30,8 +42,8 @@ M.telescope = {
     },
     mappings = {
       i = {
-        ["<C-e>"] = require("telescope.actions").preview_scrolling_down,
-        ["<C-y>"] = require("telescope.actions").preview_scrolling_up,
+        ["<C-e>"] = function(bufnr) slow_scroll(bufnr, 1) end,
+        ["<C-y>"] = function(bufnr) slow_scroll(bufnr, -1) end,
         -- ["<S-o>"] = require("telescope.actions").select_all,
         -- ["<S-t>"] = require("telescope.actions").toggle_all,
         ["<C-d>"] = "delete_buffer",
@@ -42,6 +54,7 @@ M.telescope = {
     },
   },
 }
+
 
 M.nvterm = {
   terminals = {
