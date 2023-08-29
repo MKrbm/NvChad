@@ -212,17 +212,65 @@ M.tree_climber = {
       opts2,
     },
   },
+
+  v = {
+    ["gp"] = {
+      function()
+        require("tree-climber").goto_parent()
+      end,
+      "Go parent",
+      opts2,
+    },
+
+    ["gg"] = {
+      function()
+        require("tree-climber").goto_child()
+      end,
+      "Go child",
+      opts2,
+    },
+
+    ["g;"] = {
+      function()
+        require("tree-climber").goto_next { skip_comments = true }
+      end,
+      "Go to next sybling",
+      opts2,
+    },
+
+    ["g,"] = {
+      function()
+        require("tree-climber").goto_prev { skip_comments = true }
+      end,
+      "Go to previous sybling",
+      opts2,
+    },
+  },
 }
 
 M.cmake = {
   n = {
-    ["\\g"] = {"<CMD> CMakeGenerate <CR>" , "generate cmake", opts },
-    ["\\b"] = {"<CMD> CMakeBuild <CR>" , "build cmake", opts },
+    ["\\g"] = { "<CMD> CMakeGenerate <CR>", "generate cmake", opts },
+    ["\\b"] = { "<CMD> CMakeBuild <CR>", "build cmake", opts },
     -- ["\\r"] = {"<CMD> CMakeRun <CR>" , "run cmake", opts },
-    ["\\c"] = {"<CMD> CMakeClose <CR>" , "close cmake ", opts },
-    ["\\s"] = {"<CMD> CMakeStop <CR>" , "stop cmake ", opts },
-    ["\\o"] = {"<CMD> CMakeOpen <CR>" , "Open cmake", opts },
-    ["\\t"] = {"<CMD> CMakeSelectBuildTarget <CR>" , "Select Build target", opts },
+    ["\\c"] = { "<CMD> CMakeClose <CR>", "close cmake ", opts },
+    ["\\s"] = { "<CMD> CMakeStop <CR>", "stop cmake ", opts },
+    ["\\o"] = { "<CMD> CMakeOpen <CR>", "Open cmake", opts },
+    ["\\t"] = { "<CMD> CMakeSelectBuildTarget <CR>", "Select Build target", opts },
+  },
+}
+
+M.gitdiff = {
+  n = {
+    ["<leader>gd"] = { "<CMD> DiffviewOpen <CR>", "Diffview open", opts },
+    ["<leader>gc"] = { "<CMD> DiffviewClose <CR>", "Diffview open", opts },
+  },
+}
+
+M.undo = {
+  n = {
+    ["\\ut"] = { "<CMD> UndotreeToggle <CR>", "Undotree toggle", opts },
+    ["\\uh"] = { "<CMD> UndotreeHide <CR>", "Undotree hide", opts },
   },
 }
 
