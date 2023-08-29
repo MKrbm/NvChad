@@ -379,6 +379,7 @@ local plugins = {
   },
 
   { "tpope/vim-surround", lazy = false },
+
   {
     "karb94/neoscroll.nvim",
     lazy = true,

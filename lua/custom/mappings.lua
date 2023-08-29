@@ -45,6 +45,10 @@ M.general = {
       "<CMD>q<CR>",
       "Close buffer",
     },
+    ["\\q"] = {
+      "<CMD>q<CR>",
+      "Close buffer",
+    },
     ["<M-q>"] = {
       function()
         require("nvchad.tabufline").close_buffer()
@@ -184,7 +188,7 @@ M.tree_climber = {
       opts2,
     },
 
-    ["gcc"] = {
+    ["gg"] = {
       function()
         require("tree-climber").goto_child()
       end,
@@ -192,7 +196,7 @@ M.tree_climber = {
       opts2,
     },
 
-    ["gn"] = {
+    ["g;"] = {
       function()
         require("tree-climber").goto_next { skip_comments = true }
       end,
@@ -200,7 +204,7 @@ M.tree_climber = {
       opts2,
     },
 
-    ["gN"] = {
+    ["g,"] = {
       function()
         require("tree-climber").goto_prev { skip_comments = true }
       end,
@@ -217,7 +221,8 @@ M.cmake = {
     -- ["\\r"] = {"<CMD> CMakeRun <CR>" , "run cmake", opts },
     ["\\c"] = {"<CMD> CMakeClose <CR>" , "close cmake ", opts },
     ["\\s"] = {"<CMD> CMakeStop <CR>" , "stop cmake ", opts },
-    ["\\o"] = {"<CMD> CMakeOpen <CR>" , "stop cmake ", opts },
+    ["\\o"] = {"<CMD> CMakeOpen <CR>" , "Open cmake", opts },
+    ["\\t"] = {"<CMD> CMakeSelectBuildTarget <CR>" , "Select Build target", opts },
   },
 }
 
