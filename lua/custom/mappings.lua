@@ -146,7 +146,7 @@ M.tabufline = {
 M.hop = {
   n = {
     ["G"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
-    ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    -- ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },
     ["gw"] = { "<cmd> HopWordMW <CR>", "nvim-hop jump to word", opts = { silent = true, noremap = true } },
     ["gs"] = { "<cmd> HopChar1MW <CR>", "nvim-hop char1", opts = { silent = true, noremap = true } },
@@ -212,13 +212,12 @@ M.tree_climber = {
 
 M.cmake = {
   n = {
-    ["<leader>Cg"] = {"<CMD> CMakeGenerate <CR>" , "generate cmake", opts },
-    ["<leader>Cb"] = {"<CMD> CMakeBuild <CR>" , "build cmake", opts },
-    ["<leader>Cr"] = {"<CMD> CMakeRun <CR>" , "run cmake", opts },
-    ["<leader>Cx"] = {"<CMD> CMakeClean <CR>" , "clean cmake", opts },
-    ["<leader>Cc"] = {"<CMD> CMakeClose <CR>" , "close cmake ", opts },
-    ["<leader>Cs"] = {"<CMD> CMakeStop <CR>" , "stop cmake ", opts },
-    ["<leader>Co"] = {"<CMD> CMakeOpen <CR>" , "stop cmake ", opts },
+    ["\\g"] = {"<CMD> CMakeGenerate <CR>" , "generate cmake", opts },
+    ["\\b"] = {"<CMD> CMakeBuild <CR>" , "build cmake", opts },
+    -- ["\\r"] = {"<CMD> CMakeRun <CR>" , "run cmake", opts },
+    ["\\c"] = {"<CMD> CMakeClose <CR>" , "close cmake ", opts },
+    ["\\s"] = {"<CMD> CMakeStop <CR>" , "stop cmake ", opts },
+    ["\\o"] = {"<CMD> CMakeOpen <CR>" , "stop cmake ", opts },
   },
 }
 
