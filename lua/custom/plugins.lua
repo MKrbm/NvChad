@@ -217,7 +217,12 @@ local plugins = {
   {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
-    lazy = false,
+    lazy = true,
+    command = {
+      "MarkdownPreview",
+      "MarkdownPreviewStop",
+      "MarkdownPreviewToggle",
+    },
     build = ":call mkdp#util#install()",
     -- build = "cd app && npm install && git reset --hard",
   },
@@ -309,7 +314,8 @@ local plugins = {
         "nvim-lua/plenary.nvim",
       },
     },
-    lazy = false,
+    lazy = true,
+    cmd = { "CMakeBuild", "CMakeClean", "CMakeConfigure", "CMakeInstall", "CMakeTest", "CMakeToggle", "CMakeRun", "CMakeOpen" },
     config = function()
       require("cmake-tools").setup {
         cmake_command = "cmake", -- this is used to specify cmake command path
@@ -379,12 +385,23 @@ local plugins = {
   },
 
   { "tpope/vim-surround", lazy = false },
+
   {
     "karb94/neoscroll.nvim",
     lazy = true,
     event = { "CursorHold", "CursorHoldI" },
     config = require "custom.configs.neoscroll",
   },
+
+  {
+    "mbbill/undotree",
+    lazy = true,
+    cmd = { "UndotreeToggle" },
+    config = function()
+      vim.g.undotree_WindowLayout = 2
+    end
+  },
+
 }
 
 -- ui["karb94/neoscroll.nvim"] = {
