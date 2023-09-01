@@ -20,7 +20,11 @@ capabilities2.offsetEncoding = { "utf-16" }
 
 require("lspconfig").clangd.setup {
   on_attach = on_attach,
-  capabilities = capabilities2,
+  capabilities = capabilities,
+  cmd = {
+    "clangd", 
+    "--offset-encoding=utf-16",
+  }
 }
 
 
