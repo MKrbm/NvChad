@@ -82,6 +82,7 @@ M.general = {
     [","] = { "<Plug>(clever-f-repeat-back)", "clever f" },
     ["<leader>xa"] = { ":wa<CR>:qa<CR>", "save all then quit all" },
     ["<leader>n"] = { "<Plug>(clever-f-reset)", "clever f reset" },
+    ["<leader>d"] = { '"_d', "delete into void" },
   },
   v = {
     ["#"] = { "^", "go beginning of the line", opts = { silent = true } },
@@ -92,6 +93,7 @@ M.general = {
     ["]}"] = { "]m", "prev }", opts = { noremap = true, nowait = true } },
     [";"] = { "<Plug>(clever-f-repeat-forward)", "clever f" },
     [","] = { "<Plug>(clever-f-repeat-back)", "clever f" },
+    ["<leader>d"] = { '"_d', "delete into void" },
   },
   t = {
     ["<C-h>"] = { "<C-x><C-w>h", "Window left", opts = { remap = true } },
@@ -104,6 +106,7 @@ M.general = {
     -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
     ["<A-]>"] = { "<C-t>", "next {", opts = { noremap = true, nowait = true } },
     ["<A-[>"] = { "<C-d>", "next {", opts = { noremap = true, nowait = true } },
+    ["<c-c>"] = { "<Esc>", "next {", opts = { noremap = true, nowait = true } },
   },
   c = {
     -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
