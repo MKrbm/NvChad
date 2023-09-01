@@ -9,7 +9,7 @@
 --
 --
 vim.opt.shell = "/bin/bash"
-vim.o.clipboard = "unnamedplus"
+-- vim.o.clipboard = "unnamedplus"
 vim.opt.laststatus = 2
 -- vim.opt.fillchars:append("vert:▕")
 -- vim.g.nvimtree_side = "right"
