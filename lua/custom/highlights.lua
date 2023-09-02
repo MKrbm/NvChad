@@ -13,6 +13,8 @@ M.override = {
     bg = "",
   },
 
+
+
   NvimTreeWinSeparator = {
     bg = "gray",
     fg = "line",
@@ -44,6 +46,14 @@ M.add = {
   --   ctermfg = "red",
   --   ctermbg = "red",
   -- },
+
+  MatchParen = {
+    ctermbg = 16,
+    -- fg = "red",
+    bg =  "dark_purple",
+    bold = true,
+    link = "",
+  },
 
   NormalNC = {
     bg = "darker_black",

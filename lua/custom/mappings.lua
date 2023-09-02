@@ -104,12 +104,16 @@ M.general = {
   },
   i = {
     -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
-    ["<A-]>"] = { "<C-t>", "next {", opts = { noremap = true, nowait = true } },
-    ["<A-[>"] = { "<C-d>", "next {", opts = { noremap = true, nowait = true } },
-    ["<c-c>"] = { "<Esc>", "next {", opts = { noremap = true, nowait = true } },
+    ["<A-]>"] = { "<C-t>", "insert indent {", opts = { noremap = true, nowait = true } },
+    ["<A-[>"] = { "<C-d>", "remove indent", opts = { noremap = true, nowait = true } },
+    ["<c-c>"] = { "<Esc>", "Escape", opts = { noremap = true, nowait = true } },
+    ["<c-d>"] = { "<Del>", "delete backwards", opts = { noremap = true, nowait = true } },
+    ["<M-k>"] = { "", "", opts = { noremap = true, nowait = true } },
+    ["<M-j>"] = { "", "", opts = { noremap = true, nowait = true } },
   },
-  c = {
-    -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
+  o = {
+    ["#"] = { "^", "go beginning of the line", opts = { silent = true } },
+    ["^"] = { "#", "search backward for the identifier under the cursor", opts = { silent = true } },
   },
 }
 

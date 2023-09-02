@@ -23,7 +23,7 @@ return function()
 				enabled = true,
 				auto_trigger = true,
 				keymap = {
-					accept = "<M-k>",
+					accept = "<M-y>",
 					accept_word = false,
 					accept_line = false,
 					next = "<M-n>",

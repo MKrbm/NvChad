@@ -4,8 +4,8 @@ return function()
 		mappings = {
 			"<C-u>",
 			"<C-d>",
-			"<C-b>",
-			"<C-f>",
+			-- "<C-b>",
+			-- "<C-f>",
 			"<C-y>",
 			"<C-e>",
 			"zt",

@@ -13,7 +13,7 @@ M.general = {
     ["<C-l>"] = { "<Right>", "Move right" },
     ["<C-j>"] = { "<Down>", "Move down" },
     ["<C-k>"] = { "<Up>", "Move up" },
-    ["<C-s>"] = { "<Esc><cmd> w <CR> ", "Save file" },
+    ["<C-s>"] = { "<Esc><cmd>w<CR>", "Save file" },
   },
 
   n = {
@@ -26,7 +26,7 @@ M.general = {
 
     -- save
     -- ["<C-s>"] = { "<Esc><cmd> w <CR> <cmd> KeepView edit! <CR>", "Save file" },
-    ["<C-s>"] = { "<Esc><cmd> w <CR> ", "Save file" },
+    ["<C-s>"] = {"<cmd>w<CR>", "Save file" },
 
     -- Copy all
     -- ["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
@@ -319,12 +319,12 @@ M.nvterm = {
       "Toggle horizontal term",
     },
 
-    -- ["<C-f>"] = {
-    --   function()
-    --     require("nvterm.terminal").toggle "horizontal"
-    --   end,
-    --   "Toggle horizontal term",
-    -- },
+    ["<C-f>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "Toggle horizontal term",
+    },
 
     ["\\f"] = {
       function()
@@ -356,12 +356,12 @@ M.nvterm = {
       "Toggle horizontal term",
     },
 
-    -- ["<C-f>"] = {
-    --   function()
-    --     require("nvterm.terminal").toggle "horizontal"
-    --   end,
-    --   "Toggle horizontal term",
-    -- },
+    ["<C-f>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "Toggle horizontal term",
+    },
 
     ["\\f"] = {
       function()
