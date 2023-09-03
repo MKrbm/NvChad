@@ -33,7 +33,13 @@ vim.g.mkdp_port = "8899"
 vim.g.mkdp_open_to_the_world = 1
 vim.g.mkdp_open_ip = "127.0.0.1"
 
+_G.command_profile = function()
+  vim.api.nvim_command "profile start profile.log"
+  vim.api.nvim_command "profile func *"
+  vim.api.nvim_command "profile file *"
+end
 
+vim.api.nvim_command "command! ProfileStart lua command_profile()"
 -- vim.opt.spell = true
 -- vim.opt.spelllang = '' 
 
