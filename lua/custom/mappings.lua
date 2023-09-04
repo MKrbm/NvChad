@@ -83,6 +83,8 @@ M.general = {
     ["<leader>xa"] = { ":wa<CR>:qa<CR>", "save all then quit all" },
     ["<leader>n"] = { "<Plug>(clever-f-reset)", "clever f reset" },
     ["<leader>d"] = { '"_d', "delete into void" },
+    ["\\to"] = { '<CMD>terminal<CR>', "open terminal" },
+    ["\\tc"] = { '<CMD>terminal<CR>', "open terminal" },
   },
   v = {
     ["#"] = { "^", "go beginning of the line", opts = { silent = true } },
@@ -107,7 +109,7 @@ M.general = {
     ["<Esc>"] = { "<C-x>", "terminal exit", opts = { remap = true } },
     ["<C-e>"] = { "<C-x><C-e>", "exit and scroll down", opts = { remap = true } },
     ["<C-y>"] = { "<C-x><C-y>", "exit and scroll up", opts = { remap = true } },
-    ["<C-n>"] = { "<C-x><C-n>", "exit and open nvimtree", opts = { remap = true } },
+    -- ["<C-n>"] = { "<C-x><C-n>", "exit and open nvimtree", opts = { remap = true } },
   },
   i = {
     -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
@@ -268,9 +270,9 @@ M.cmake = {
     ["\\b"] = { "<CMD> CMakeBuild <CR>", "build cmake", opts },
     -- ["\\r"] = {"<CMD> CMakeRun <CR>" , "run cmake", opts },
     ["\\c"] = { "<CMD> CMakeClose <CR>", "close cmake ", opts },
-    ["\\s"] = { "<CMD> CMakeStop <CR>", "stop cmake ", opts },
+    ["\\ss"] = { "<CMD> CMakeStop <CR>", "stop cmake ", opts },
     ["\\o"] = { "<CMD> CMakeOpen <CR>", "Open cmake", opts },
-    ["\\t"] = { "<CMD> CMakeSelectBuildTarget <CR>", "Select Build target", opts },
+    ["\\st"] = { "<CMD> CMakeSelectBuildTarget <CR>", "Select Build target", opts },
   },
 }
 
