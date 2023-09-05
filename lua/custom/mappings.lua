@@ -84,7 +84,7 @@ M.general = {
     ["<leader>n"] = { "<Plug>(clever-f-reset)", "clever f reset" },
     ["<leader>d"] = { '"_d', "delete into void" },
     ["\\to"] = { '<CMD>terminal<CR>', "open terminal" },
-    ["\\tc"] = { '<CMD>terminal<CR>', "open terminal" },
+    ["\\tc"] = { '<CMD>terminal<CR>', "close terminal" },
   },
   v = {
     ["#"] = { "^", "go beginning of the line", opts = { silent = true } },
@@ -104,7 +104,6 @@ M.general = {
     ["<C-k>"] = { "<C-x><C-w>k", "Window up", opts = { remap = true } },
     ["<A-h>"] = { "<CMD>tabprevious<CR>", "<CMD>tabprevious<CR>", ots = { noremap = true } },
     ["<A-l>"] = { "<CMD>tabnext<CR>", "<CMD>tabnext<CR>", opts = { noremap = true } },
-    ["tn"] = { "<CMD>tab split<CR>", "<CMD>tabnext<CR>", opts = { noremap = true } },
     -- ["<C-c>"] = { "<C-x>", "Enter normal mode", opts = { noremap = true } },
     ["<Esc>"] = { "<C-x>", "terminal exit", opts = { remap = true } },
     ["<C-e>"] = { "<C-x><C-e>", "exit and scroll down", opts = { remap = true } },
@@ -166,6 +165,7 @@ M.tabufline = {
 M.hop = {
   n = {
     ["G"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    -- ["gg"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     -- ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },
     ["gw"] = { "<cmd> HopWordMW <CR>", "nvim-hop jump to word", opts = { silent = true, noremap = true } },
