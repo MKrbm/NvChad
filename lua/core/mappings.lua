@@ -78,13 +78,13 @@ M.tabufline = {
   plugin = true,
 
   n = {
-    ["<S-A-l>"] = {
+    ["<S-A-k>"] = {
       function()
         require("nvchad.tabufline").move_buf(1)
       end,
       "Goto next buffer",
     },
-    ["<S-A-h>"] = {
+    ["<S-A-j>"] = {
       function()
         require("nvchad.tabufline").move_buf(-1)
       end,

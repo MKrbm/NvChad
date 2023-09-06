@@ -68,8 +68,8 @@ M.general = {
     ["<C-Rigth>"] = { ":vertical resize +2<CR>", "Width up" },
     ["<C-Left>"] = { ":vertical resize -2<CR>", "Width down" },
     -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
-    ["<A-h>"] = { "<CMD>tabprevious<CR>", "<CMD>tabprevious<CR>", ots = { remap = true } },
-    ["<A-l>"] = { "<CMD>tabnext<CR>", "<CMD>tabnext<CR>", opts = { remap = true } },
+    ["<A-j>"] = { "<CMD>tabprevious<CR>", "<CMD>tabprevious<CR>", ots = { remap = true } },
+    ["<A-k>"] = { "<CMD>tabnext<CR>", "<CMD>tabnext<CR>", opts = { remap = true } },
     ["tn"] = { "<CMD>tab split<CR>", "<CMD>tabnext<CR>", opts = { remap = true } },
     ["<leader>su"] = {
       '<Cmd>lua require("which-key").show("z=", {mode = "n", auto = true})<CR>',
@@ -102,8 +102,8 @@ M.general = {
     ["<C-l>"] = { "<C-x><C-w>l", "Window right", opts = { remap = true } },
     ["<C-j>"] = { "<C-x><C-w>j", "Window down", opts = { remap = true } },
     ["<C-k>"] = { "<C-x><C-w>k", "Window up", opts = { remap = true } },
-    ["<A-h>"] = { "<CMD>tabprevious<CR>", "<CMD>tabprevious<CR>", ots = { noremap = true } },
-    ["<A-l>"] = { "<CMD>tabnext<CR>", "<CMD>tabnext<CR>", opts = { noremap = true } },
+    ["<A-j>"] = { "<CMD>tabprevious<CR>", "<CMD>tabprevious<CR>", ots = { noremap = true } },
+    ["<A-k>"] = { "<CMD>tabnext<CR>", "<CMD>tabnext<CR>", opts = { noremap = true } },
     -- ["<C-c>"] = { "<C-x>", "Enter normal mode", opts = { noremap = true } },
     ["<Esc>"] = { "<C-x>", "terminal exit", opts = { remap = true } },
     ["<C-e>"] = { "<C-x><C-e>", "exit and scroll down", opts = { remap = true } },
@@ -146,14 +146,14 @@ M.tabufline = {
 
   n = {
     -- cycle through buffers
-    ["<S-l>"] = {
+    ["<S-k>"] = {
       function()
         require("nvchad.tabufline").tabuflineNext()
       end,
       "Goto next buffer",
     },
 
-    ["<S-h>"] = {
+    ["<S-j>"] = {
       function()
         require("nvchad.tabufline").tabuflinePrev()
       end,
