@@ -25,7 +25,7 @@ M.general = {
     ["<leader>sl"] = { "<cmd> SessionLoad <CR>", "session load", opts = { noremap = true, nowait = true } },
     ["zj"] = { "o<C-u><Esc>k", "Insert empty-line below", opts = opts },
     ["zk"] = { "o<C-u><Esc>j", "Insert empty-line above", opts = opts },
-    ["<M-j>"] = { "i<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
+    -- ["<M-j>"] = { "i<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
     ["#"] = { "^", "go beginning of the line", opts = opts },
     ["^"] = { "#", "buffer previous", opts = opts },
     ["d#"] = { "d^", "", opts = opts },
@@ -84,7 +84,7 @@ M.general = {
     ["<leader>n"] = { "<Plug>(clever-f-reset)", "clever f reset" },
     ["<leader>d"] = { '"_d', "delete into void" },
     ["\\to"] = { '<CMD>terminal<CR>', "open terminal" },
-    ["\\tc"] = { '<CMD>terminal<CR>', "close terminal" },
+    ["\\tc"] = { '<CMD>tab close<CR>', "close tab" },
   },
   v = {
     ["#"] = { "^", "go beginning of the line", opts = { silent = true } },
@@ -165,7 +165,7 @@ M.tabufline = {
 M.hop = {
   n = {
     ["G"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
-    -- ["gg"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["gh"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     -- ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },
     ["gw"] = { "<cmd> HopWordMW <CR>", "nvim-hop jump to word", opts = { silent = true, noremap = true } },
@@ -177,7 +177,7 @@ M.glance = {
   n = {
     -- cycle through buffers
     ["gd"] = { "<CMD>Glance definitions<CR>", "Go definition", opts },
-    ["gh"] = { "<CMD>Glance references<CR>", "Go reference", opts },
+    ["g<S-h>"] = { "<CMD>Glance references<CR>", "Go reference", opts },
     ["gy"] = { "<CMD>Glance type_definitions<CR>", "Go type_definitions", opts },
     ["gi"] = { "<CMD>Glance implementations<CR>", "Go implementations", opts },
   },
@@ -187,9 +187,10 @@ M.Lspsaga = {
   n = {
     ["gr"] = { "<CMD>Lspsaga rename<CR>", "Go definition", opts },
     ["gR"] = { "<CMD>Lspsaga rename ++project<CR>", "Go definition", opts },
-    ["<S-k>"] = { "<CMD>Lspsaga hover_doc<CR>", "Go definition", opts },
+    ["g<S-k>"] = { "<CMD>Lspsaga hover_doc<CR>", "Go definition", opts },
     ["ga"] = { "<CMD>Lspsaga code_action<CR>", "Go definition", opts },
     ["gD"] = { "<CMD>Lspsaga goto_definition<CR>", "Go definition", opts },
+    ["go"] = { "<CMD>Lspsaga outline<CR>", "Go outline", opts },
   },
 }
 
