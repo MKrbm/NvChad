@@ -23,8 +23,8 @@ M.general = {
     -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>ss"] = { "<cmd> SessionSave <CR>", "session save", opts = { noremap = true, nowait = true } },
     ["<leader>sl"] = { "<cmd> SessionLoad <CR>", "session load", opts = { noremap = true, nowait = true } },
-    ["zj"] = { "o<C-u><Esc>k", "Insert empty-line below", opts = opts },
-    ["zk"] = { "o<C-u><Esc>j", "Insert empty-line above", opts = opts },
+    ["zk"] = { "<CMD> call append(line('.')-1, '') <CR>", "Insert empty-line below", opts = opts },
+    ["zj"] = { "<CMD> call append(line('.'), '') <CR>", "Insert empty-line above", opts = opts },
     -- ["<M-j>"] = { "i<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
     ["#"] = { "^", "go beginning of the line", opts = opts },
     ["^"] = { "#", "buffer previous", opts = opts },
@@ -85,6 +85,12 @@ M.general = {
     ["<leader>d"] = { '"_d', "delete into void" },
     ["\\to"] = { '<CMD>terminal<CR>', "open terminal" },
     ["\\tc"] = { '<CMD>tab close<CR>', "close tab" },
+    ["<M-e>"] = { 'j<C-e>', "scroll with cursor" },
+    -- ["<C-e>"] = { 'j<C-e>', "scroll with cursor" },
+    ["<M-y>"] = { 'k<C-y>', "scroll with cursor" },
+    -- ["<C-y>"] = { 'k<C-y>', "scroll with cursor" },
+    ["<leader>j"] = { '<S-j>', "scroll with cursor", opts = opts2 },
+    ["<leader>k"] = { "i<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
   },
   v = {
     ["#"] = { "^", "go beginning of the line", opts = { silent = true } },
@@ -165,7 +171,23 @@ M.tabufline = {
 M.hop = {
   n = {
     ["G"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
-    ["gh"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["gg"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    -- ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },
+    ["gw"] = { "<cmd> HopWordMW <CR>", "nvim-hop jump to word", opts = { silent = true, noremap = true } },
+    ["gs"] = { "<cmd> HopChar1MW <CR>", "nvim-hop char1", opts = { silent = true, noremap = true } },
+  },
+  v = {
+    ["G"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["gg"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    -- ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },
+    ["gw"] = { "<cmd> HopWordMW <CR>", "nvim-hop jump to word", opts = { silent = true, noremap = true } },
+    ["gs"] = { "<cmd> HopChar1MW <CR>", "nvim-hop char1", opts = { silent = true, noremap = true } },
+  },
+  o = {
+    ["G"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["gg"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     -- ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },
     ["gw"] = { "<cmd> HopWordMW <CR>", "nvim-hop jump to word", opts = { silent = true, noremap = true } },
@@ -185,12 +207,12 @@ M.glance = {
 
 M.Lspsaga = {
   n = {
-    ["gr"] = { "<CMD>Lspsaga rename<CR>", "Go definition", opts },
-    ["gR"] = { "<CMD>Lspsaga rename ++project<CR>", "Go definition", opts },
-    ["g<S-k>"] = { "<CMD>Lspsaga hover_doc<CR>", "Go definition", opts },
-    ["ga"] = { "<CMD>Lspsaga code_action<CR>", "Go definition", opts },
-    ["gD"] = { "<CMD>Lspsaga goto_definition<CR>", "Go definition", opts },
-    ["go"] = { "<CMD>Lspsaga outline<CR>", "Go outline", opts },
+    ["gr"] = { "<CMD>Lspsaga rename<CR>", "rename", opts },
+    ["gR"] = { "<CMD>Lspsaga rename ++project<CR>", "rename ++ project", opts },
+    ["g<S-k>"] = { "<CMD>Lspsaga hover_doc<CR>", "hover_doc", opts },
+    ["ga"] = { "<CMD>Lspsaga code_action<CR>", "code action", opts },
+    ["gD"] = { "<CMD>Lspsaga goto_definition<CR>", "Go type definition", opts },
+    ["go"] = { "<CMD>Lspsaga outline<CR>", "open outline", opts },
   },
 }
 
@@ -205,7 +227,15 @@ M.tree_climber = {
       opts2,
     },
 
-    ["gg"] = {
+    ["<M-[>"] = {
+      function()
+        require("tree-climber").goto_parent()
+      end,
+      "Go parent",
+      opts2,
+    },
+
+    ["<M-]>"] = {
       function()
         require("tree-climber").goto_child()
       end,
@@ -239,7 +269,15 @@ M.tree_climber = {
       opts2,
     },
 
-    ["gg"] = {
+    ["<M-[>"] = {
+      function()
+        require("tree-climber").goto_parent()
+      end,
+      "Go parent",
+      opts2,
+    },
+
+    ["<M-]>"] = {
       function()
         require("tree-climber").goto_child()
       end,
