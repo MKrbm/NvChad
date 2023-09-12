@@ -305,6 +305,16 @@ local plugins = {
     "sindrets/diffview.nvim",
     lazy = true,
     cmd = { "DiffviewOpen", "DiffviewClose" },
+    opts = {
+      view = {
+        default = {
+          layout = "diff2_vertical"
+        },
+        merge_tool = {
+          layout = "diff3_mixed"
+        }
+      }
+    },
   },
 
   {

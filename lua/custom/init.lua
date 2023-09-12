@@ -22,3 +22,8 @@ vim.api.nvim_exec([[
       autocmd FileType NvimTree setlocal nocursorcolumn
   augroup END
 ]], false)
+
+vim.cmd [[
+  autocmd FileType * setlocal formatoptions-=cro
+]]
+
