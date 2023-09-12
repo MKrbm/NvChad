@@ -123,7 +123,7 @@ local plugins = {
     lazy = false,
     config = function()
       require("hop").setup {
-        case_insensitive = true,
+        case_insensitive = false,
         char2_fallback_key = "<CR>",
         quit_key = "<Esc>",
       }

@@ -170,7 +170,7 @@ M.tabufline = {
 
 M.hop = {
   n = {
-    ["G"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["G"] = { "<cmd> HopPattern <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gg"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     -- ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },
@@ -178,7 +178,7 @@ M.hop = {
     ["gs"] = { "<cmd> HopChar1MW <CR>", "nvim-hop char1", opts = { silent = true, noremap = true } },
   },
   v = {
-    ["G"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["G"] = { "<cmd> HopPattern <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gg"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     -- ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },
@@ -186,7 +186,7 @@ M.hop = {
     ["gs"] = { "<cmd> HopChar1MW <CR>", "nvim-hop char1", opts = { silent = true, noremap = true } },
   },
   o = {
-    ["G"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
+    ["G"] = { "<cmd> HopPattern <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gg"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     -- ["\\"] = { "<cmd> HopChar2MW <CR>", "nvim-hop char2", opts = { silent = true, noremap = true } },
     ["gk"] = { "<cmd> HopLineMW <CR>", "nvim-hop jump to line", opts = { silent = true, noremap = true } },

@@ -156,7 +156,7 @@ M.lspconfig = {
       "LSP definition",
     },
 
-    ["K"] = {
+    ["gK"] = {
       function()
         vim.lsp.buf.hover()
       end,
