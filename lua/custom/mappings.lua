@@ -91,6 +91,12 @@ M.general = {
     -- ["<C-y>"] = { 'k<C-y>', "scroll with cursor" },
     ["<leader>j"] = { '<S-j>', "scroll with cursor", opts = opts2 },
     ["<leader>k"] = { "i<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
+    ["<leader>se"] = {
+      function()
+        vim.diagnostic.open_float()
+      end,
+      "Goto next buffer",
+    },
   },
   v = {
     ["#"] = { "^", "go beginning of the line", opts = { silent = true } },
@@ -211,7 +217,6 @@ M.Lspsaga = {
     ["gR"] = { "<CMD>Lspsaga rename ++project<CR>", "rename ++ project", opts },
     ["g<S-k>"] = { "<CMD>Lspsaga hover_doc<CR>", "hover_doc", opts },
     ["ga"] = { "<CMD>Lspsaga code_action<CR>", "code action", opts },
-    ["gD"] = { "<CMD>Lspsaga goto_definition<CR>", "Go type definition", opts },
     ["go"] = { "<CMD>Lspsaga outline<CR>", "open outline", opts },
   },
 }
