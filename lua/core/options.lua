@@ -6,6 +6,7 @@ local function load_options()
     -- backspace = "indent,eol,start",
     -- backup = false,
     -- backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim",
+    breakindent = true,
     -- breakat = [[\ \	;:,!?]],
     -- breakindentopt = "shift:2,min:20",
     -- clipboard = "unnamedplus",
