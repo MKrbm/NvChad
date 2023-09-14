@@ -284,7 +284,16 @@ M.telescope = {
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
-    ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<leader>fc"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Fuzzy find in current buffer" },
+    ["<leader>fz"] = {
+      function()
+        require("telescope.builtin").live_grep({
+          prompt_title = "Find in current buffer",
+          search_dirs = {"%:p"},
+        })
+      end,
+      "Find in current buffer",
+    },
 
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
