@@ -4,8 +4,8 @@ local M = {}
 -- local actions = require "telescope.actions"
 
 local slow_scroll = function(prompt_bufnr, direction)
-  local state = require("telescope.state")
-  local action_state = require("telescope.actions.state")
+  local state = require "telescope.state"
+  local action_state = require "telescope.actions.state"
   local previewer = action_state.get_current_picker(prompt_bufnr).previewer
   local status = state.get_status(prompt_bufnr)
   -- Check if we actually have a previewer and a preview window
@@ -42,8 +42,12 @@ M.telescope = {
     },
     mappings = {
       i = {
-        ["<C-e>"] = function(bufnr) slow_scroll(bufnr, 1) end,
-        ["<C-y>"] = function(bufnr) slow_scroll(bufnr, -1) end,
+        ["<C-e>"] = function(bufnr)
+          slow_scroll(bufnr, 1)
+        end,
+        ["<C-y>"] = function(bufnr)
+          slow_scroll(bufnr, -1)
+        end,
         -- ["<S-o>"] = require("telescope.actions").select_all,
         -- ["<S-t>"] = require("telescope.actions").toggle_all,
         ["<C-d>"] = "delete_buffer",
@@ -54,7 +58,6 @@ M.telescope = {
     },
   },
 }
-
 
 M.nvterm = {
   terminals = {
@@ -119,10 +122,25 @@ M.treesitter = {
     -- additional_vim_regex_highlighting = { "c", "cpp" },
   },
   indent = {
-    enable = true,
+    enable = false,
     -- disable = {
     --   "python"
     -- },
+  },
+  rainbow = {
+    -- disable = {
+    --   'cpp',
+    --   'c',
+    -- },
+    hlgroups = {
+      "rainbow1",
+      "rainbow2",
+      "rainbow3",
+      "rainbow4",
+      "rainbow5",
+      "rainbow6",
+      "rainbow7",
+    }
   },
   textobjects = {
     select = {
@@ -206,6 +224,8 @@ local my_on_attach = function(bufnr)
   vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
   vim.keymap.set("n", "h", api.node.navigate.parent_close, opts "Close Directory")
   vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
+  vim.keymap.set("n", "<C-Right>", "<CMD>NvimTreeResize +5<CR>", opts "Increase file explorer width")
+  vim.keymap.set("n", "<C-Left>", "<CMD>NvimTreeResize -5<CR>", opts "Decrease file explorer width")
   vim.keymap.set("n", "<S-l>", function(node)
     local nt_api = require "nvim-tree.api"
     nt_api.node.open.edit(node)
@@ -220,6 +240,15 @@ M.nvimtree = {
     enable = true,
   },
   on_attach = my_on_attach,
+  -- hijack_directories = {
+  --   enable = false,
+  --   auto_open = false,
+  -- },
+  -- update_focused_file = {
+  --   enable = false,
+  --   update_root = false,
+  --   ignore_list = {},
+  -- },
   renderer = {
     highlight_git = true,
     icons = {

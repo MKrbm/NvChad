@@ -86,11 +86,10 @@ local default_plugins = {
       require("nvim-treesitter.configs").setup(opts)
     end,
     dependencies = {
-      -- {
-      --   "harrisoncramer/jump-tag",
-      -- },
       {
-
+        "HiPhish/nvim-ts-rainbow2",
+      },
+      {
         "drybalka/tree-climber.nvim",
         -- opts = function()
         --   return {
@@ -102,7 +101,6 @@ local default_plugins = {
         -- end,
       },
       {
-
         "mfussenegger/nvim-treehopper",
       },
       -- {
@@ -254,6 +252,7 @@ local default_plugins = {
   -- file managing , picker etc
   {
     "nvim-tree/nvim-tree.lua",
+    lazy = false,
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     init = function()
       require("core.utils").load_mappings "nvimtree"
