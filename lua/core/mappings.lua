@@ -266,10 +266,16 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+    ["<C-n>"] = {
+      function()
+        -- require("nvim-tree.api").tree.toggle({current_window=true})
+        require("nvim-tree.api").tree.toggle()
+      end,
+      "Toggle nvimtree" },
 
+    -- ["<C-n>"] = { "<cmd> NvimTreeToggle focus=false <CR>", "Toggle nvimtree" },
     -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+    ["<leader>e"] = { "<cmd> NvimTreeFindFile <CR>", "Focus nvimtree" },
   },
 }
 
