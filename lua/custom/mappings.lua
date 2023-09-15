@@ -41,10 +41,10 @@ M.general = {
     -- ["]}"] = { "][", "prev }", opts = { noremap = true, nowait = true } },
     -- ["]{"] = { "]m", "next {", opts = { noremap = true, nowait = true } },
     -- ["gcc"] = {"", ""},
-    ["<S-M-q>"] = {
-      "<CMD>q<CR>",
-      "Close buffer",
-    },
+    -- ["<S-M-q>"] = {
+    --   "<CMD>q<CR>",
+    --   "Close buffer",
+    -- },
     ["\\q"] = {
       "<CMD>q<CR>",
       "Close buffer",
@@ -65,7 +65,7 @@ M.general = {
     },
     ["<C-Up>"] = { ":resize +2<CR>", "Height up" },
     ["<C-Down>"] = { ":resize -2<CR>", "Height down" },
-    ["<C-Rigth>"] = { ":vertical resize +2<CR>", "Width up" },
+    ["<C-Right>"] = { ":vertical resize +2<CR>", "Width up" },
     ["<C-Left>"] = { ":vertical resize -2<CR>", "Width down" },
     -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },
     ["<A-j>"] = { "<CMD>tabprevious<CR>", "<CMD>tabprevious<CR>", ots = { remap = true } },
@@ -97,6 +97,9 @@ M.general = {
       end,
       "Goto next buffer",
     },
+    ["q"] = { "", "delete record macro shortcut", opts = opts },
+    ["<leader>q"] = { "q", "record macro", opts = opts },
+    ["<leader>2"] = { "@", "execute macro", opts = opts },
   },
   v = {
     ["#"] = { "^", "go beginning of the line", opts = { silent = true } },
@@ -121,6 +124,10 @@ M.general = {
     ["<C-e>"] = { "<C-x><C-e>", "exit and scroll down", opts = { remap = true } },
     ["<C-y>"] = { "<C-x><C-y>", "exit and scroll up", opts = { remap = true } },
     -- ["<C-n>"] = { "<C-x><C-n>", "exit and open nvimtree", opts = { remap = true } },
+    ["<C-Up>"] = { "<CMD>resize +2<CR>", "Height up" },
+    ["<C-Down>"] = { "<CMD>resize -2<CR>", "Height down" },
+    ["<C-Right>"] = { "<CMD>vertical resize +2<CR>", "Width up" },
+    ["<C-Left>"] = { "<CMDvertical resize -2<CR>", "Width down" },
   },
   i = {
     -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },

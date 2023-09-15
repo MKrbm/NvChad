@@ -36,7 +36,7 @@ M.override = {
     -- cterm = ""
   },
   -- PreviewNormal = { fg = "green", bg = "green"  },
-  -- PreviewLineNr = { fg = "green", bg = "green"  },
+ -- PreviewLineNr = { fg = "green", bg = "green"  },
   -- NormalFloat = { fg = "green", bg = "green"  },
 }
 ---@type HLTable
@@ -47,6 +47,28 @@ M.add = {
   --   ctermbg = "red",
   -- },
 
+  rainbow1 = {
+    fg = "#ffadad",
+  },
+  rainbow2 = {
+    fg = "#ffd6a5",
+  },
+
+  rainbow3 = {
+    fg = "#fdffb6",
+  },
+  rainbow4 = {
+    fg = "#caffbf",
+  },
+  rainbow5 = {
+    fg = "#9bf6ff",
+  },
+  rainbow6 = {
+    fg = "#a0c4ff",
+  },
+  rainbow7 = {
+    fg = "#bdb2ff",
+  },
   MatchParen = {
     ctermbg = 16,
     -- fg = "red",
