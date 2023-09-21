@@ -71,7 +71,7 @@ M.add = {
   },
   MatchParen = {
     ctermbg = 16,
-    bg =  "#513758",
+    bg =  "#3b2940",
     bold = true,
     link = "",
   },
