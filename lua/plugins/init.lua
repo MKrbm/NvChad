@@ -57,7 +57,7 @@ local default_plugins = {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    version = "2.20.7",
+    version = "2.20.8",
     init = function()
       require("core.utils").lazy_load "indent-blankline.nvim"
     end,
@@ -87,18 +87,24 @@ local default_plugins = {
     end,
     dependencies = {
       {
-        "HiPhish/nvim-ts-rainbow2",
+        "HiPhish/rainbow-delimiters.nvim",
+        config = function()
+          require "rainbow-delimiters.setup" {
+            highlight = {
+              "rainbow1",
+              "rainbow2",
+              "rainbow3",
+              "rainbow4",
+              "rainbow5",
+              "rainbow6",
+              "rainbow7",
+            },
+            blacklist = {},
+          }
+        end,
       },
       {
         "drybalka/tree-climber.nvim",
-        -- opts = function()
-        --   return {
-        --     skip_comments = true,
-        --   }
-        -- end,
-        -- config = function(_, opts)
-        --   require("tree-climber").setup(opts)
-        -- end,
       },
       {
         "mfussenegger/nvim-treehopper",
@@ -302,9 +308,9 @@ local default_plugins = {
     --   require("telescope").setup(opts)
     -- end,
     config = function(_, opts)
-      require("telescope").load_extension("persisted")
+      require("telescope").load_extension "persisted"
       dofile(vim.g.base46_cache .. "telescope")
-      local telescope = require("telescope")
+      local telescope = require "telescope"
       telescope.setup(opts)
 
       -- load extensions
