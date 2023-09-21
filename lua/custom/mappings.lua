@@ -111,6 +111,9 @@ M.general = {
     [";"] = { "<Plug>(clever-f-repeat-forward)", "clever f" },
     [","] = { "<Plug>(clever-f-repeat-back)", "clever f" },
     ["<leader>d"] = { '"_d', "delete into void" },
+    ["<leader>j"] = { '<S-j>', "Remove line brek at the end", opts = opts2 },
+    ["<leader>k"] = { "i<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
+    ["<s-j>"] = { "", "disable <s-j> during visual mode", opts = opts },
   },
   t = {
     ["<C-h>"] = { "<C-x><C-w>h", "Window left", opts = { remap = true } },
@@ -214,7 +217,7 @@ M.glance = {
     ["gd"] = { "<CMD>Glance definitions<CR>", "Go definition", opts },
     ["g<S-h>"] = { "<CMD>Glance references<CR>", "Go reference", opts },
     ["gy"] = { "<CMD>Glance type_definitions<CR>", "Go type_definitions", opts },
-    ["gi"] = { "<CMD>Glance implementations<CR>", "Go implementations", opts },
+    ["gI"] = { "<CMD>Glance implementations<CR>", "Go implementations", opts },
   },
 }
 
