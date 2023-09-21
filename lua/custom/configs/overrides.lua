@@ -97,7 +97,7 @@ M.treesitter = {
     "html",
     "javascript",
     "json",
-    "latex",
+    -- "latex",
     "lua",
     "make",
     "markdown",
@@ -205,6 +205,10 @@ M.mason = {
     -- cmake
     "cmake-language-server",
     "cmakelang",
+
+    -- latex
+    "vale",
+    "latexindent",
 
     -- "cspell",
     "tree-sitter-cli",

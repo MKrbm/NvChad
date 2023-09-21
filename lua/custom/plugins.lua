@@ -419,6 +419,13 @@ local plugins = {
     },
     config = function()
       vim.cmd("call vimtex#init()")
+      vim.g.vimtex_compiler_method = "latexmk"
+      vim.g.vimtex_view_general_viewer = "okular"
+      -- vim.g.vimtex_view_method = "okular"
+      -- vim.g.vimtex_view_automatic = 0
+      vim.g.vimtex_indent_enabled = 0
+      vim.g.vimtex_view_general_options = "--noraise --unique file:@pdf\\#src:@line@tex"
+      -- vim.g.vimtex_view_general_options_latexmk = "--unique"
     end
   },
 
