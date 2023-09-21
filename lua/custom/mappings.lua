@@ -129,8 +129,8 @@ M.general = {
     -- ["<C-n>"] = { "<C-x><C-n>", "exit and open nvimtree", opts = { remap = true } },
     ["<C-Up>"] = { "<CMD>resize +2<CR>", "Height up" },
     ["<C-Down>"] = { "<CMD>resize -2<CR>", "Height down" },
-    ["<C-Right>"] = { "<CMD>vertical resize +2<CR>", "Width up" },
-    ["<C-Left>"] = { "<CMDvertical resize -2<CR>", "Width down" },
+    -- ["<C-Right>"] = { "<CMD>vertical resize +2<CR>", "Width up" },
+    -- ["<C-Left>"] = { "<CMDvertical resize -2<CR>", "Width down" },
   },
   i = {
     -- ["<C-c>"] = { "", "delete ctrl-c", opts = { remap = true } },

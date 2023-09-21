@@ -58,7 +58,7 @@ require("lspconfig").pylsp.setup {
 						E501 = "I",
 					},
 				},
-				flake8 = { enabled = false },
+				flake8 = { enabled = true },
 				pyflakes = { enabled = false },
 				pycodestyle = { enabled = false },
 				mccabe = { enabled = false },
