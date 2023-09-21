@@ -412,6 +412,16 @@ local plugins = {
     end
   },
 
+  {
+    "lervag/vimtex",
+    ft = {
+      "tex"
+    },
+    config = function()
+      vim.cmd("call vimtex#init()")
+    end
+  },
+
 }
 
 -- ui["karb94/neoscroll.nvim"] = {

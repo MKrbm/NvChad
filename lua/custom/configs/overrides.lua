@@ -189,6 +189,7 @@ M.mason = {
     "lua-language-server",
     "stylua",
 
+
     -- web dev stuff
     "css-lsp",
     "html-lsp",
@@ -210,6 +211,8 @@ M.mason = {
 
     -- python
     "python-lsp-server",
+    "black",
+    "flake8"
   },
 }
 
