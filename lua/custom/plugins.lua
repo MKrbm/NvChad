@@ -325,7 +325,7 @@ local plugins = {
       },
     },
     lazy = true,
-    cmd = { "CMakeBuild", "CMakeClean", "CMakeConfigure", "CMakeInstall", "CMakeTest", "CMakeToggle", "CMakeRun", "CMakeOpen" },
+    cmd = { "CMakeBuild", "CMakeClean", "CMakeConfigure", "CMakeInstall", "CMakeTest", "CMakeToggle", "CMakeRun", "CMakeOpen", "CMakeGenerate" },
     config = function()
       require("cmake-tools").setup {
         cmake_command = "cmake", -- this is used to specify cmake command path
