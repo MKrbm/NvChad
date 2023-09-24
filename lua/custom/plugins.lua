@@ -308,12 +308,12 @@ local plugins = {
     opts = {
       view = {
         default = {
-          layout = "diff2_vertical"
+          layout = "diff2_vertical",
         },
         merge_tool = {
-          layout = "diff3_mixed"
-        }
-      }
+          layout = "diff3_mixed",
+        },
+      },
     },
   },
 
@@ -325,7 +325,17 @@ local plugins = {
       },
     },
     lazy = true,
-    cmd = { "CMakeBuild", "CMakeClean", "CMakeConfigure", "CMakeInstall", "CMakeTest", "CMakeToggle", "CMakeRun", "CMakeOpen", "CMakeGenerate" },
+    cmd = {
+      "CMakeBuild",
+      "CMakeClean",
+      "CMakeConfigure",
+      "CMakeInstall",
+      "CMakeTest",
+      "CMakeToggle",
+      "CMakeRun",
+      "CMakeOpen",
+      "CMakeGenerate",
+    },
     config = function()
       require("cmake-tools").setup {
         cmake_command = "cmake", -- this is used to specify cmake command path
@@ -396,12 +406,12 @@ local plugins = {
 
   { "tpope/vim-surround", lazy = false },
 
-  {
-    "karb94/neoscroll.nvim",
-    lazy = true,
-    event = { "CursorHold", "CursorHoldI" },
-    config = require "custom.configs.neoscroll",
-  },
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   lazy = true,
+  --   event = { "CursorHold", "CursorHoldI" },
+  --   config = require "custom.configs.neoscroll",
+  -- },
 
   {
     "mbbill/undotree",
@@ -409,26 +419,22 @@ local plugins = {
     cmd = { "UndotreeToggle" },
     config = function()
       vim.g.undotree_WindowLayout = 2
-    end
+    end,
   },
 
   {
     "lervag/vimtex",
-    ft = {
-      "tex"
-    },
-    config = function()
-      vim.cmd("call vimtex#init()")
-      vim.g.vimtex_compiler_method = "latexmk"
-      vim.g.vimtex_view_general_viewer = "okular"
-      -- vim.g.vimtex_view_method = "okular"
-      -- vim.g.vimtex_view_automatic = 0
+    lazy = false,
+    init = function()
+      vim.g.vimtex_compiler_latexmk = {
+        aux_dir = "./aux",
+        out_dir = "./out",
+      }
       vim.g.vimtex_indent_enabled = 0
+      vim.g.vimtex_view_general_viewer = "okular"
       vim.g.vimtex_view_general_options = "--noraise --unique file:@pdf\\#src:@line@tex"
-      -- vim.g.vimtex_view_general_options_latexmk = "--unique"
-    end
+    end,
   },
-
 }
 
 -- ui["karb94/neoscroll.nvim"] = {
