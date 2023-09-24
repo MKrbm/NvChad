@@ -406,12 +406,12 @@ local plugins = {
 
   { "tpope/vim-surround", lazy = false },
 
-  {
-    "karb94/neoscroll.nvim",
-    lazy = true,
-    event = { "CursorHold", "CursorHoldI" },
-    config = require "custom.configs.neoscroll",
-  },
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   lazy = true,
+  --   event = { "CursorHold", "CursorHoldI" },
+  --   config = require "custom.configs.neoscroll",
+  -- },
 
   {
     "mbbill/undotree",
