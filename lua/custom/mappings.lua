@@ -85,12 +85,12 @@ M.general = {
     ["<leader>d"] = { '"_d', "delete into void" },
     ["\\to"] = { '<CMD>terminal<CR>', "open terminal" },
     ["\\tc"] = { '<CMD>tab close<CR>', "close tab" },
-    ["<M-e>"] = { 'j<C-e>', "scroll with cursor" },
-    -- ["<C-e>"] = { 'j<C-e>', "scroll with cursor" },
-    ["<M-y>"] = { 'k<C-y>', "scroll with cursor" },
-    -- ["<C-y>"] = { 'k<C-y>', "scroll with cursor" },
+    ["<M-e>"] = { '<C-e>', "scroll with cursor" },
+    ["<M-y>"] = { '<C-y>', "scroll with cursor" },
+    ["<C-e>"] = { 'j<C-e>', "scroll with cursor" },
+    ["<C-y>"] = { 'k<C-y>', "scroll with cursor" },
     ["<leader>j"] = { '<S-j>', "scroll with cursor", opts = opts2 },
-    ["<leader>k"] = { "i<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
+    ["<leader>k"] = { "a<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
     ["<leader>se"] = {
       function()
         vim.diagnostic.open_float()
@@ -111,6 +111,9 @@ M.general = {
     [";"] = { "<Plug>(clever-f-repeat-forward)", "clever f" },
     [","] = { "<Plug>(clever-f-repeat-back)", "clever f" },
     ["<leader>d"] = { '"_d', "delete into void" },
+    ["<leader>j"] = { '<S-j>', "Remove line brek at the end", opts = opts2 },
+    ["<leader>k"] = { "a<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
+    ["<s-j>"] = { "", "disable <s-j> during visual mode", opts = opts },
   },
   t = {
     ["<C-h>"] = { "<C-x><C-w>h", "Window left", opts = { remap = true } },
@@ -214,7 +217,7 @@ M.glance = {
     ["gd"] = { "<CMD>Glance definitions<CR>", "Go definition", opts },
     ["g<S-h>"] = { "<CMD>Glance references<CR>", "Go reference", opts },
     ["gy"] = { "<CMD>Glance type_definitions<CR>", "Go type_definitions", opts },
-    ["gi"] = { "<CMD>Glance implementations<CR>", "Go implementations", opts },
+    ["gI"] = { "<CMD>Glance implementations<CR>", "Go implementations", opts },
   },
 }
 
@@ -231,14 +234,6 @@ M.Lspsaga = {
 M.tree_climber = {
   -- plugin=true,
   n = {
-    ["gp"] = {
-      function()
-        require("tree-climber").goto_parent()
-      end,
-      "Go parent",
-      opts2,
-    },
-
     ["<M-[>"] = {
       function()
         require("tree-climber").goto_parent()
@@ -255,7 +250,7 @@ M.tree_climber = {
       opts2,
     },
 
-    ["g;"] = {
+    ["<M-;>"] = {
       function()
         require("tree-climber").goto_next { skip_comments = true }
       end,
@@ -263,7 +258,7 @@ M.tree_climber = {
       opts2,
     },
 
-    ["g,"] = {
+    ["<M-,>"] = {
       function()
         require("tree-climber").goto_prev { skip_comments = true }
       end,
@@ -273,14 +268,6 @@ M.tree_climber = {
   },
 
   v = {
-    ["gp"] = {
-      function()
-        require("tree-climber").goto_parent()
-      end,
-      "Go parent",
-      opts2,
-    },
-
     ["<M-[>"] = {
       function()
         require("tree-climber").goto_parent()
@@ -297,7 +284,7 @@ M.tree_climber = {
       opts2,
     },
 
-    ["g;"] = {
+    ["<M-;>"] = {
       function()
         require("tree-climber").goto_next { skip_comments = true }
       end,
@@ -305,7 +292,7 @@ M.tree_climber = {
       opts2,
     },
 
-    ["g,"] = {
+    ["<M-,>"] = {
       function()
         require("tree-climber").goto_prev { skip_comments = true }
       end,

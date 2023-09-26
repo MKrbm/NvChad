@@ -28,6 +28,10 @@ local sources = {
   -- Lua
   b.formatting.stylua,
 
+  -- latex
+  b.formatting.latexindent,
+  -- b.diagnostics.vale,
+
   -- c++
   b.formatting.clang_format,
 
