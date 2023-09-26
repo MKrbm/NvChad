@@ -86,13 +86,8 @@ M.general = {
     ["\\to"] = { '<CMD>terminal<CR>', "open terminal" },
     ["\\tc"] = { '<CMD>tab close<CR>', "close tab" },
     ["<M-e>"] = { '<C-e>', "scroll with cursor" },
-<<<<<<< HEAD
     ["<M-y>"] = { '<C-y>', "scroll with cursor" },
     ["<C-e>"] = { 'j<C-e>', "scroll with cursor" },
-=======
-    ["<C-e>"] = { 'j<C-e>', "scroll with cursor" },
-    ["<M-y>"] = { '<C-y>', "scroll with cursor" },
->>>>>>> origin/main
     ["<C-y>"] = { 'k<C-y>', "scroll with cursor" },
     ["<leader>j"] = { '<S-j>', "scroll with cursor", opts = opts2 },
     ["<leader>k"] = { "a<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
@@ -119,8 +114,6 @@ M.general = {
     ["<leader>j"] = { '<S-j>', "Remove line brek at the end", opts = opts2 },
     ["<leader>k"] = { "a<CR><Esc>k$", "Insert empty-line at the cursor", opts = opts },
     ["<s-j>"] = { "", "disable <s-j> during visual mode", opts = opts },
-    ["<M-y>"] = { '<C-y>', "scroll with cursor" },
-    ["<C-y>"] = { 'k<C-y>', "scroll with cursor" },
   },
   t = {
     ["<C-h>"] = { "<C-x><C-w>h", "Window left", opts = { remap = true } },
